@@ -1,1 +1,7 @@
 MYGL/.vs/
+*.obj
+*.tlog
+*.ilk
+*.idb
+*.pdb
+*.log
