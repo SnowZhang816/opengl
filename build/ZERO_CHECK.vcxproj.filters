@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\learn\opengl\build\CMakeFiles\f1e5661be0570e5faba9c3501abe1e03\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\learn\opengl\glfw-3.3.8\cmake_uninstall.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\examples\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\examples</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\src\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\src</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\src\glfw3.pc.in">
+      <Filter>Buildsystem Input Files\src</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\src\glfw3Config.cmake.in">
+      <Filter>Buildsystem Input Files\src</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\src\glfw_config.h.in">
+      <Filter>Buildsystem Input Files\src</Filter>
+    </None>
+    <None Include="E:\learn\opengl\glfw-3.3.8\tests\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\tests</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BA16CDD0-B7E3-3DC6-ACF3-C49C44D8C432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5B8504CC-7782-3CC3-A508-0EE86254BFEE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files">
+      <UniqueIdentifier>{90ADAAC9-E49A-3390-8BCA-B22A2FE661B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\examples">
+      <UniqueIdentifier>{937354EB-48ED-3A7D-BD13-A5262F3F2648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\src">
+      <UniqueIdentifier>{BC45395A-2F5D-3FCF-B88A-5CCA4ABB0754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\tests">
+      <UniqueIdentifier>{2A29E838-889D-3695-AB6E-D8AF7355759B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
