@@ -2,23 +2,13 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <chrono>
+#include "Shader.h"
+
+using namespace std;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
-
-const char *vs = "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-    "}\0";
-
-const char* fs = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}\n\0";;
 
 int main() {
 
@@ -43,60 +33,83 @@ int main() {
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    unsigned int vsShader;
-    vsShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vsShader, 1, &vs, NULL);
-    glCompileShader(vsShader);
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vsShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(vsShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-
-    unsigned int fsShader;
-    fsShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fsShader, 1, &fs, NULL);
-    glCompileShader(fsShader);
-    glGetShaderiv(fsShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(fsShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-
-    unsigned int shaderProgram;
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vsShader);
-    glAttachShader(shaderProgram, fsShader);
-    glLinkProgram(shaderProgram);
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    glDeleteShader(vsShader);
-    glDeleteShader(fsShader);
-
+    int maxAttribs;
+    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxAttribs);
+    std::cout << "Max vertex attributes supported : " << maxAttribs << endl;
+    Shader* shader = new Shader("shader/shader.vsh", "shader/shader.fsh");
     float vertices[] = {
-           -0.5f, -0.5f, 0.0f, // left  
-            0.5f, -0.5f, 0.0f, // right 
-            0.0f,  0.5f, 0.0f  // top   
+         0.5f,  0.5f, 0.0f,  // top right
+         0.5f, -0.5f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  // bottom left
+        -0.5f,  0.5f, 0.0f   // top left 
     };
 
-    unsigned int vbo, vao;
-    glGenVertexArrays(1, &vao);
+    float colours[] = {
+        1.0f, 0.0f,  0.0f,
+        0.0f, 1.0f,  0.0f,
+        0.0f, 0.0f,  1.0f
+    };
+
+    unsigned int indices[] = {  // note that we start from 0!
+        1, 2, 3    // second triangle
+    };
+
+    unsigned int indices1[] = {  // note that we start from 0!
+        1, 0, 2,   // first triangle
+    };
+
+    unsigned int vbo, vao[2], ebo[2], cvbo;
     glGenBuffers(1, &vbo);
-    glBindVertexArray(vao);
+    glGenBuffers(1, &cvbo);
+    glGenBuffers(2, ebo);
+    glGenVertexArrays(2, vao);
+
+    glBindVertexArray(vao[0]);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo[0]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glBindBuffer(GL_ARRAY_BUFFER, cvbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colours), colours, GL_STATIC_DRAW);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+
     glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glEnableVertexAttribArray(1);
+
+    //--
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+   
+    glBindVertexArray(vao[1]);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo[1]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices1), indices1, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, cvbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colours), colours, GL_STATIC_DRAW);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
 
     glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    shader->use();
+
+    auto t_start = std::chrono::high_resolution_clock::now();
 
     while (!glfwWindowShouldClose(window))
     {
@@ -105,17 +118,27 @@ int main() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(shaderProgram);
-        glBindVertexArray(vao);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        auto t_now = std::chrono::high_resolution_clock::now();
+        float time = std::chrono::duration_cast<std::chrono::duration<float>>(t_now - t_start).count();
+
+        //GLint uniColor = glGetUniformLocation(shaderProgram, "triangleColor");
+        //glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f) / 2.0f, 0.0f, 0.0f);
+
+        glBindVertexArray(vao[0]);
+        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+
+        glBindVertexArray(vao[1]);
+        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(1, &vao);
+    glDeleteVertexArrays(2, vao);
     glDeleteBuffers(1, &vbo);
-    glDeleteProgram(shaderProgram);
+    glDeleteBuffers(2, ebo);
+    
+    delete shader;
 
     glfwTerminate();
 
