@@ -58,6 +58,13 @@ int main() {
         1, 0, 2,   // first triangle
     };
 
+    float texCoords[] = {
+        0,1,
+        0,0,
+        1,0,
+        1,1,
+    };
+
     unsigned int vbo, vao[2], ebo[2], cvbo;
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &cvbo);
@@ -137,7 +144,7 @@ int main() {
     glDeleteVertexArrays(2, vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(2, ebo);
-    
+
     delete shader;
 
     glfwTerminate();
