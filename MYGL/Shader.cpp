@@ -51,7 +51,7 @@ Shader::Shader(const char* vsPath, const char* fsPath)
     glGetShaderiv(vsShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(vsShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
+        std::cout << "vsShader:" << infoLog << std::endl;
     }
 
     unsigned int fsShader;
@@ -61,7 +61,7 @@ Shader::Shader(const char* vsPath, const char* fsPath)
     glGetShaderiv(fsShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(fsShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
+        std::cout << "fsShader:" << infoLog << std::endl;
     }
 
     this->ID = glCreateProgram();
@@ -71,7 +71,7 @@ Shader::Shader(const char* vsPath, const char* fsPath)
     glGetProgramiv(ID, GL_LINK_STATUS, &success);
     if (!success) {
         glGetProgramInfoLog(ID, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
+        std::cout << "glLinkProgram:" << infoLog << std::endl;
     }
     glDeleteShader(vsShader);
     glDeleteShader(fsShader);
