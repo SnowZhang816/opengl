@@ -145,10 +145,12 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="std_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="std_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MYGL.rc" />

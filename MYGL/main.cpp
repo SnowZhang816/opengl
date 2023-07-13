@@ -4,6 +4,7 @@
 #include <iostream>
 #include <chrono>
 #include "Shader.h"
+#include "std_image.h"
 
 using namespace std;
 
@@ -115,6 +116,9 @@ int main() {
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     shader->use();
+
+    int width, height, nrChannels;
+    unsigned char* data = stbi_load("assets/image/emoji.jpg", &width, &height, &nrChannels, 0);
 
     auto t_start = std::chrono::high_resolution_clock::now();
 
