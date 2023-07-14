@@ -7,6 +7,10 @@
 #include "std_image.h"
 #include "Texture.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 using namespace std;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
@@ -43,22 +47,26 @@ int main()
     std::cout << "Max vertex attributes supported : " << maxAttribs << endl;
     Shader *shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
     float vertices[] = {
-        0.5f, 0.5f, 0.0f,   // top right
-        0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f   // top left
+        -0.5f, 0.0f, -0.5f,  
+        0.5f, 0.0f, -0.5f, 
+        0.5f, -0.0f, 0.5f,
+        -0.5f, 0.0f, 0.5f 
     };
 
     float colours[] = {
         1.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f
-    };
+        1.0f, 1.0f, 0.0f};
 
     unsigned int indices[] = {
         // note that we start from 0!
-        1, 2, 3 // second triangle
+        0,
+        1,
+        2, // second triangle
+        0,
+        2,
+        3,
     };
 
     unsigned int indices1[] = {
@@ -67,10 +75,14 @@ int main()
     };
 
     float texCoords[] = {
-        0,1,
-        0,0,
-        1,0,
-        1,1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
     };
 
     unsigned int vbo, vao[2], ebo[2], cvbo, tvbo;
@@ -137,14 +149,18 @@ int main()
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    float intensity = 0.0;
+    glm::mat4 trans = glm::mat4(1.0f);
+    trans = glm::rotate(trans, 90.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+    glm::vec4 result = trans * glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+    printf("%f, %f, %f\n", result.x, result.y, result.z);
 
+    float intensity = 0.5;
     auto t_start = std::chrono::high_resolution_clock::now();
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.f, 0.f, 0.f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         auto t_now = std::chrono::high_resolution_clock::now();
@@ -154,24 +170,51 @@ int main()
         // GLint uniColor = glGetUniformLocation(shaderProgram, "triangleColor");
         // glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f) / 2.0f, 0.0f, 0.0f);
 
-        intensity = intensity + time * 0.1;
-        if (intensity > 1) {
-            intensity = 0;
-        }
+        // intensity = intensity + time * 0.1;
+        // if (intensity > 1)
+        // {
+        //     intensity = 0;
+        // }
+
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::rotate(model, 100.f * (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f)) * model;
+        shader->setMat4("model", model);
+
+        glm::mat4 view = glm::mat4(1.0f);
+        // note that we're translating the scene in the reverse direction of where we want to move
+        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        view = glm::rotate(view, 30.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+        shader->setMat4("view", view);
+
+        glm::mat4 projection;
+        projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
+        shader->setMat4("projection", projection);
+
+        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.5f));
+        transform = glm::rotate(transform, 90.0f, glm::vec3(0.0f, 0.0f, 1.0f));
 
         shader->use();
         shader->setInt("texture1", 0);
         shader->setInt("texture2", 1);
         shader->setFloat("intensity", intensity);
+        shader->setMat4("transform", transform);
         tex1->use(GL_TEXTURE0);
         tex2->use(GL_TEXTURE1);
 
-
         glBindVertexArray(vao[0]);
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-		//glBindVertexArray(vao[1]);
-		//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        transform = glm::mat4(1.0f); // reset it to identity matrix
+        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+        float scaleAmount = static_cast<float>(sin(glfwGetTime()));
+        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+        shader->setMat4("transform", transform);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+
+        // glBindVertexArray(vao[1]);
+        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -200,3 +243,4 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
+
