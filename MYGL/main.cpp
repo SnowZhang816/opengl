@@ -50,23 +50,36 @@ int main()
         -0.5f, 0.0f, -0.5f,  
         0.5f, 0.0f, -0.5f, 
         0.5f, -0.0f, 0.5f,
-        -0.5f, 0.0f, 0.5f 
+        -0.5f, 0.0f, 0.5f ,
+
+        -0.5f, 1.f, -0.5f,  
+        0.5f, 1.f, -0.5f, 
+        0.5f, 1.f, 0.5f,
+        -0.5f, 1.f, 0.5f 
     };
 
     float colours[] = {
         1.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f};
+        1.0f, 1.0f, 0.0f,
+
+        1.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 1.0f,
+        1.0f, 1.0f, 0.0f,
+    };
 
     unsigned int indices[] = {
         // note that we start from 0!
-        0,
-        1,
-        2, // second triangle
-        0,
-        2,
-        3,
+        0,1,2,0,2,3,
+        4,5,6,4,6,7,
+        5,4,1,4,1,0
+        
+        // 0,1,2,0,2,3,
+        // 0,1,2,0,2,3,
+        // 0,1,2,0,2,3,
+        
     };
 
     unsigned int indices1[] = {
@@ -75,53 +88,22 @@ int main()
     };
 
     float texCoords[] = {
-        0,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
+        0,1,1,1,1,0,0,0,
+        0,1,1,1,1,0,0,0,
+        0,1,1,1,1,0,0,0,
     };
 
-    unsigned int vbo, vao[2], ebo[2], cvbo, tvbo;
+    unsigned int vbo, vao, ebo, cvbo, tvbo;
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &cvbo);
     glGenBuffers(1, &tvbo);
-    glGenBuffers(2, ebo);
-    glGenVertexArrays(2, vao);
+    glGenBuffers(1, &ebo);
+    glGenVertexArrays(1, &vao);
 
-    glBindVertexArray(vao[0]);
+    glBindVertexArray(vao);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo[0]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, cvbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(colours), colours, GL_STATIC_DRAW);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, tvbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(texCoords), texCoords, GL_STATIC_DRAW);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
-
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(2);
-
-    //--
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindVertexArray(vao[1]);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo[1]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices1), indices1, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -154,6 +136,8 @@ int main()
     glm::vec4 result = trans * glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     printf("%f, %f, %f\n", result.x, result.y, result.z);
 
+    glEnable(GL_DEPTH_TEST);
+
     float intensity = 0.5;
     auto t_start = std::chrono::high_resolution_clock::now();
     while (!glfwWindowShouldClose(window))
@@ -161,7 +145,7 @@ int main()
         processInput(window);
 
         glClearColor(0.f, 0.f, 0.f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         auto t_now = std::chrono::high_resolution_clock::now();
         float time = std::chrono::duration_cast<std::chrono::duration<float>>(t_now - t_start).count();
@@ -202,27 +186,23 @@ int main()
         tex1->use(GL_TEXTURE0);
         tex2->use(GL_TEXTURE1);
 
-        glBindVertexArray(vao[0]);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glBindVertexArray(vao);
+        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(float), GL_UNSIGNED_INT, 0);
 
-        transform = glm::mat4(1.0f); // reset it to identity matrix
-        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
-        float scaleAmount = static_cast<float>(sin(glfwGetTime()));
-        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
-        shader->setMat4("transform", transform);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-
-        // glBindVertexArray(vao[1]);
-        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        // transform = glm::mat4(1.0f); // reset it to identity matrix
+        // transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+        // float scaleAmount = static_cast<float>(sin(glfwGetTime()));
+        // transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+        // shader->setMat4("transform", transform);
+        // glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(2, vao);
+    glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
-    glDeleteBuffers(2, ebo);
+    glDeleteBuffers(1, &ebo);
 
     delete shader;
     delete tex1;
