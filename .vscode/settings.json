@@ -39,7 +39,8 @@
         "xutility": "cpp",
         "sstream": "cpp",
         "string": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "*.rh": "cpp"
     },
     "cmake.configureOnOpen": false,
 }

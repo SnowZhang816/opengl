@@ -5,6 +5,7 @@
 #include <chrono>
 #include "Shader.h"
 #include "std_image.h"
+#include "Texture.h"
 
 using namespace std;
 
@@ -127,21 +128,8 @@ int main()
     glEnableVertexAttribArray(2);
 
     // texture
-    unsigned int textureID;
-	glGenTextures(1, &textureID);
-	glBindTexture(GL_TEXTURE_2D, textureID);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("assets/image/wall.jpg", &width, &height, &nrChannels, 0);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-	glGenerateMipmap(GL_TEXTURE_2D);
-    stbi_image_free(data);
+    Texture *tex1 = new Texture("assets/image/container.jpg", GL_RGB);
+    Texture *tex2 = new Texture("assets/image/awesomeface.png", GL_RGBA);
 
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -149,7 +137,7 @@ int main()
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-
+    float intensity = 0.0;
 
     auto t_start = std::chrono::high_resolution_clock::now();
     while (!glfwWindowShouldClose(window))
@@ -161,13 +149,23 @@ int main()
 
         auto t_now = std::chrono::high_resolution_clock::now();
         float time = std::chrono::duration_cast<std::chrono::duration<float>>(t_now - t_start).count();
+        t_start = t_now;
 
         // GLint uniColor = glGetUniformLocation(shaderProgram, "triangleColor");
         // glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f) / 2.0f, 0.0f, 0.0f);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, textureID);
+
+        intensity = intensity + time * 0.1;
+        if (intensity > 1) {
+            intensity = 0;
+        }
 
         shader->use();
+        shader->setInt("texture1", 0);
+        shader->setInt("texture2", 1);
+        shader->setFloat("intensity", intensity);
+        tex1->use(GL_TEXTURE0);
+        tex2->use(GL_TEXTURE1);
+
 
         glBindVertexArray(vao[0]);
         glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
@@ -184,6 +182,8 @@ int main()
     glDeleteBuffers(2, ebo);
 
     delete shader;
+    delete tex1;
+    delete tex2;
 
     glfwTerminate();
 
