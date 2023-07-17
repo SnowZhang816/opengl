@@ -10,11 +10,14 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "Grid.h"
 
 using namespace std;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
+
+float degree = 0;
 
 int main()
 {
@@ -47,50 +50,78 @@ int main()
     std::cout << "Max vertex attributes supported : " << maxAttribs << endl;
     Shader *shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
     float vertices[] = {
-        -0.5f, 0.0f, -0.5f,  
-        0.5f, 0.0f, -0.5f, 
-        0.5f, -0.0f, 0.5f,
-        -0.5f, 0.0f, 0.5f ,
+        -1.0f, -0.5f, -0.5f,
+        0.0f, -0.5f, -0.5f,
+        0.0f, -0.5f, 0.5f,
+        -1.0f, -0.5f, 0.5f,
 
-        -0.5f, 1.f, -0.5f,  
-        0.5f, 1.f, -0.5f, 
-        0.5f, 1.f, 0.5f,
-        -0.5f, 1.f, 0.5f 
-    };
+        -0.5f, 0.5f, -0.5f,
+        0.5f, 0.5f, -0.5f,
+        0.5f, 0.5f, 0.5f,
+        -0.5f, 0.5f, 0.5f};
 
     float colours[] = {
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        1.0f,
+        1.0f,
+        0.0f,
 
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        1.0f,
+        1.0f,
+        0.0f,
     };
 
     unsigned int indices[] = {
         // note that we start from 0!
-        0,1,2,0,2,3,
-        4,5,6,4,6,7,
-        5,4,1,4,1,0
-        
-        // 0,1,2,0,2,3,
-        // 0,1,2,0,2,3,
-        // 0,1,2,0,2,3,
-        
-    };
+        0,
+        1,
+        2,
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        4,
+        6,
+        7,
 
-    unsigned int indices1[] = {
-        // note that we start from 0!
-        1, 0, 2, // first triangle
     };
 
     float texCoords[] = {
-        0,1,1,1,1,0,0,0,
-        0,1,1,1,1,0,0,0,
-        0,1,1,1,1,0,0,0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
     };
 
     unsigned int vbo, vao, ebo, cvbo, tvbo;
@@ -139,7 +170,59 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     float intensity = 0.5;
-    auto t_start = std::chrono::high_resolution_clock::now();
+    float radio = 3;
+    Grid grid = Grid();
+
+
+
+
+
+
+
+    // 第一个三角形
+    float vertices1[] = {
+        -1.0f, 0.0f, 0.0f,
+        -0.5f, 0.5f, 0.0f,
+        0.0f, -0.0f, 0.0f
+    };
+
+    // 第二个三角形
+    float vertices2[] = {
+        0.0f, 0.0f, 0.0f,
+        0.5f, 0.5f, 0.0f,
+        1.0f, 0.0f, 0.0f 
+    };
+
+
+    unsigned int VAO[2], VBO[2];
+    glGenVertexArrays(2, VAO);
+    glGenBuffers(2, VBO);
+
+    glBindVertexArray(VAO[0]);
+    // 创建并绑定VBO（Vertex Buffer Object），将顶点数据复制到缓冲区
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices1), vertices1, GL_STATIC_DRAW);
+    // 设置顶点属性指针
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+
+
+    glBindVertexArray(VAO[1]);
+    // 创建并绑定VBO（Vertex Buffer Object），将顶点数据复制到缓冲区
+    glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
+    // 设置顶点属性指针
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    // 创建并编译第一个顶点着色器
+    Shader s1 = Shader("assets/shader/shader1.vsh", "assets/shader/shader1.fsh");
+
+    // 创建并编译第二个顶点着色器
+    Shader s2 = Shader("assets/shader/shader2.vsh", "assets/shader/shader2.fsh");
+
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -147,54 +230,64 @@ int main()
         glClearColor(0.f, 0.f, 0.f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        auto t_now = std::chrono::high_resolution_clock::now();
-        float time = std::chrono::duration_cast<std::chrono::duration<float>>(t_now - t_start).count();
-        t_start = t_now;
-
-        // GLint uniColor = glGetUniformLocation(shaderProgram, "triangleColor");
-        // glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f) / 2.0f, 0.0f, 0.0f);
-
-        // intensity = intensity + time * 0.1;
-        // if (intensity > 1)
-        // {
-        //     intensity = 0;
-        // }
-
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, 100.f * (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f)) * model;
-        shader->setMat4("model", model);
+        // model = glm::rotate(model, 100.f * (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f)) * model;
 
         glm::mat4 view = glm::mat4(1.0f);
         // note that we're translating the scene in the reverse direction of where we want to move
-        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-        view = glm::rotate(view, 30.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-        shader->setMat4("view", view);
+        // view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        // view = glm::rotate(view, 30.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+        // shader->setMat4("view", view);
+        // float x = cos(glfwGetTime()) * radio;
+        // float z = sin(glfwGetTime()) * radio;
+        float x = sin(glm::radians(degree)) * radio;
+        float z = cos(glm::radians(degree)) * radio;
+        view = glm::lookAt(glm::vec3(x, 3, z), glm::vec3(0, 0, 0), glm::vec3(0.0, 1.0, 0.0));
 
         glm::mat4 projection;
         projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
-        shader->setMat4("projection", projection);
 
-        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.5f));
-        transform = glm::rotate(transform, 90.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+        grid.setTranslate(model, view, projection);
+        grid.draw();
+
 
         shader->use();
+        shader->setMat4("model", model);
+        shader->setMat4("view", view);
+        shader->setMat4("projection", projection);
         shader->setInt("texture1", 0);
         shader->setInt("texture2", 1);
         shader->setFloat("intensity", intensity);
-        shader->setMat4("transform", transform);
         tex1->use(GL_TEXTURE0);
         tex2->use(GL_TEXTURE1);
 
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(float), GL_UNSIGNED_INT, 0);
+ 
 
-        // transform = glm::mat4(1.0f); // reset it to identity matrix
-        // transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
-        // float scaleAmount = static_cast<float>(sin(glfwGetTime()));
-        // transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
-        // shader->setMat4("transform", transform);
-        // glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+
+
+
+
+        // grid.shader->use();
+        // grid.shader->setMat4("model", model);
+        // grid.shader->setMat4("view", view);
+        // grid.shader->setMat4("projection", projection);
+        // grid.draw();
+
+        // s1.use();
+        // s1.setMat4("model", model);
+        // s1.setMat4("view", view);
+        // s1.setMat4("projection", projection);
+        // glBindVertexArray(VAO[0]);
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        // s2.use();
+        // s2.setMat4("model", model);
+        // s2.setMat4("view", view);
+        // s2.setMat4("projection", projection);
+        // glBindVertexArray(VAO[1]);
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -221,6 +314,17 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 void processInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    {
         glfwSetWindowShouldClose(window, true);
+    }
+    else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
+        degree = degree + 1;
+        std::cout << "degree" << degree << endl;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    {
+        degree = degree - 1;
+        std::cout << "degree" << degree << endl;
+    }
 }
-
