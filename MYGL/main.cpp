@@ -16,16 +16,21 @@ using namespace std;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
+void mouse_callback(GLFWwindow *window, double x, double y);
+void mouse_button(GLFWwindow *window, int button, int action, int mods);
 
 float degree = 0;
 float radio = 3;
 
-glm::vec3 cameraPos   = glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio);
+bool leftEnter = false;
+bool rightEnter = false;
+
+glm::vec3 cameraPos = glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
-//float radio = glm::length(cameraTarget - cameraPos);
+// float radio = glm::length(cameraTarget - cameraPos);
 
 int main()
 {
@@ -51,7 +56,12 @@ int main()
 
     glViewport(0, 0, 800, 600);
 
+    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetMouseButtonCallback(window, mouse_button);
+    // glfwSetCursorEnterCallback()
 
     int maxAttribs;
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &maxAttribs);
@@ -184,16 +194,13 @@ int main()
     float vertices1[] = {
         -1.0f, 0.0f, 0.0f,
         -0.5f, 0.5f, 0.0f,
-        0.0f, -0.0f, 0.0f
-    };
+        0.0f, -0.0f, 0.0f};
 
     // 第二个三角形
     float vertices2[] = {
         0.0f, 0.0f, 0.0f,
         0.5f, 0.5f, 0.0f,
-        1.0f, 0.0f, 0.0f 
-    };
-
+        1.0f, 0.0f, 0.0f};
 
     unsigned int VAO[2], VBO[2];
     glGenVertexArrays(2, VAO);
@@ -204,17 +211,15 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices1), vertices1, GL_STATIC_DRAW);
     // 设置顶点属性指针
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
-
-
 
     glBindVertexArray(VAO[1]);
     // 创建并绑定VBO（Vertex Buffer Object），将顶点数据复制到缓冲区
     glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
     // 设置顶点属性指针
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
 
     // 创建并编译第一个顶点着色器
@@ -222,7 +227,6 @@ int main()
 
     // 创建并编译第二个顶点着色器
     Shader s2 = Shader("assets/shader/shader2.vsh", "assets/shader/shader2.fsh");
-
 
     while (!glfwWindowShouldClose(window))
     {
@@ -251,7 +255,6 @@ int main()
 
         grid.setTranslate(model, view, projection);
         grid.draw();
-
 
         shader->use();
         shader->setMat4("model", model);
@@ -297,7 +300,8 @@ void processInput(GLFWwindow *window)
 
     const float cameraSpeed = 0.01; // adjust accordingly
     const float rotateSpeed = 0.1f; // adjust accordinglydd
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    {
         // radio -= radio * cameraSpeed;
         // cameraPos.x = sin(glm::radians(degree)) * radio;
         // cameraPos.z = cos(glm::radians(degree)) * radio;
@@ -305,8 +309,9 @@ void processInput(GLFWwindow *window)
         cameraPos += glm::normalize(cameraTarget - cameraPos) * cameraSpeed;
         radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
     }
-        
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    {
         // radio += radio * cameraSpeed;
         // cameraPos.x = sin(glm::radians(degree)) * radio;
         // cameraPos.z = cos(glm::radians(degree)) * radio;
@@ -315,15 +320,147 @@ void processInput(GLFWwindow *window)
         radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
     }
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    {
         degree = degree - rotateSpeed;
         cameraPos.x = sin(glm::radians(degree)) * radio;
         cameraPos.z = cos(glm::radians(degree)) * radio;
     }
 
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
         degree = degree + rotateSpeed;
         cameraPos.x = sin(glm::radians(degree)) * radio;
         cameraPos.z = cos(glm::radians(degree)) * radio;
+    }
+}
+double xpos; 
+double ypos;
+
+void mouse_callback(GLFWwindow *window, double x, double y)
+{
+    if (leftEnter) {
+        // std::cout << "leftEnter mouse_callback: " << x << "," << y << endl;
+        glm::vec2 start = glm::vec2(xpos, ypos);
+        glm::vec2 end = glm::vec2(x, y);
+        glm::vec2 line = end - start;
+        xpos = x;
+        ypos = y;
+        if (line.x != 0 || line.y != 0) {
+            float len = glm::length(line);
+            glm::vec2 normal = glm::normalize(line);
+            float p = 0;
+            float q = 0;
+            glm::vec2 referY = glm::vec2(0,1);
+            glm::vec2 referX = glm::vec2(1,0);        
+            if (end.x > 400 && end.y < 300) {      //第一象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1,0);
+                q = glm::dot(normal, referX);
+                if (p == 0) {
+                    if (q > 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                } else {
+                    if (p > 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                }
+            } else if(end.x < 400 && end.y < 300){ //第二象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1,0);
+                q = glm::dot(normal, referX);
+                if (p == 0) {
+                    if (q > 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                } else {
+                    if (p < 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                }
+            } else if(end.x < 400 && end.y > 300){ //第三象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1,0);
+                q = glm::dot(normal, referX);
+                if (p == 0) {
+                    if (q < 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                } else {
+                    if (p < 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                }
+            } else if(end.x > 400 && end.y > 300){ //第四象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1,0);
+                q = glm::dot(normal, referX);
+                if (p == 0) {
+                    if (q < 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                } else {
+                    if (p > 0) {
+                        degree = degree + len * 0.5;
+                    } else {
+                        degree = degree - len * 0.5;
+                    }
+                }
+            }
+            
+            // std::cout << "degree" << degree << "," << p << endl;
+            cameraPos.x = sin(glm::radians(degree)) * radio;
+            cameraPos.z = cos(glm::radians(degree)) * radio;
+        }
+    }
+}
+
+void mouse_button(GLFWwindow *window, int button, int action, int mods)
+{
+    std::cout << "mouse_button:" << button << "  action:" << action << "  mods:" << mods << endl;
+
+    if (action == 1 && button == 0)
+    {
+        leftEnter = true;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);  
+        glfwGetCursorPos(window, &xpos, &ypos);
+    }
+
+    if (action == 0 && button == 0)
+    {
+        leftEnter = false;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        xpos = 0;
+        ypos = 0;  
+    }
+
+    if (action == 1 && button == 1)
+    {
+        rightEnter = true;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);  
+        glfwGetCursorPos(window, &xpos, &ypos);
+    }
+
+    if (action == 0 && button == 1)
+    {
+        rightEnter = false;
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);  
+        xpos = 0;
+        ypos = 0; 
     }
 }
