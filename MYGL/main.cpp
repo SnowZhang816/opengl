@@ -18,6 +18,14 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
 float degree = 0;
+float radio = 3;
+
+glm::vec3 cameraPos   = glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+
+glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
+//float radio = glm::length(cameraTarget - cameraPos);
 
 int main()
 {
@@ -170,14 +178,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     float intensity = 0.5;
-    float radio = 3;
     Grid grid = Grid();
-
-
-
-
-
-
 
     // 第一个三角形
     float vertices1[] = {
@@ -242,7 +243,8 @@ int main()
         // float z = sin(glfwGetTime()) * radio;
         float x = sin(glm::radians(degree)) * radio;
         float z = cos(glm::radians(degree)) * radio;
-        view = glm::lookAt(glm::vec3(x, 3, z), glm::vec3(0, 0, 0), glm::vec3(0.0, 1.0, 0.0));
+        // view = glm::lookAt(glm::vec3(x, 3, z), glm::vec3(0, 0, 0), glm::vec3(0.0, 1.0, 0.0));
+        view = glm::lookAt(cameraPos, cameraTarget, cameraUp);
 
         glm::mat4 projection;
         projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
@@ -263,31 +265,6 @@ int main()
 
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(float), GL_UNSIGNED_INT, 0);
- 
-
-
-
-
-
-        // grid.shader->use();
-        // grid.shader->setMat4("model", model);
-        // grid.shader->setMat4("view", view);
-        // grid.shader->setMat4("projection", projection);
-        // grid.draw();
-
-        // s1.use();
-        // s1.setMat4("model", model);
-        // s1.setMat4("view", view);
-        // s1.setMat4("projection", projection);
-        // glBindVertexArray(VAO[0]);
-        // glDrawArrays(GL_TRIANGLES, 0, 3);
-
-        // s2.use();
-        // s2.setMat4("model", model);
-        // s2.setMat4("view", view);
-        // s2.setMat4("projection", projection);
-        // glBindVertexArray(VAO[1]);
-        // glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -317,14 +294,36 @@ void processInput(GLFWwindow *window)
     {
         glfwSetWindowShouldClose(window, true);
     }
-    else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-    {
-        degree = degree + 1;
-        std::cout << "degree" << degree << endl;
+
+    const float cameraSpeed = 0.01; // adjust accordingly
+    const float rotateSpeed = 0.1f; // adjust accordinglydd
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        // radio -= radio * cameraSpeed;
+        // cameraPos.x = sin(glm::radians(degree)) * radio;
+        // cameraPos.z = cos(glm::radians(degree)) * radio;
+
+        cameraPos += glm::normalize(cameraTarget - cameraPos) * cameraSpeed;
+        radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
     }
-    else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-    {
-        degree = degree - 1;
-        std::cout << "degree" << degree << endl;
+        
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+        // radio += radio * cameraSpeed;
+        // cameraPos.x = sin(glm::radians(degree)) * radio;
+        // cameraPos.z = cos(glm::radians(degree)) * radio;
+
+        cameraPos -= glm::normalize(cameraTarget - cameraPos) * cameraSpeed;
+        radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+        degree = degree - rotateSpeed;
+        cameraPos.x = sin(glm::radians(degree)) * radio;
+        cameraPos.z = cos(glm::radians(degree)) * radio;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+        degree = degree + rotateSpeed;
+        cameraPos.x = sin(glm::radians(degree)) * radio;
+        cameraPos.z = cos(glm::radians(degree)) * radio;
     }
 }
