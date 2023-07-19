@@ -1,12 +1,12 @@
 #include "Camera.h"
 #include <iostream>
 
-Camera::Camera() : projectionType(PERSPECTIVE), position(glm::vec3(0)), lookAt(glm::vec3(0)), up(glm::vec3(0))
+Camera::Camera(CameraProjection type) : projectionType(type), position(glm::vec3(0)), lookAt(glm::vec3(0)), up(glm::vec3(0))
 {
     if (projectionType == PERSPECTIVE) {
         perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
     } else {
-        ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+        ortho(-400, 400.0f, 300.0f, -300.0f, 0.1f, 100.0f);
     }
 
     yaw = 0;

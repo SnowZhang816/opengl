@@ -25,7 +25,7 @@ enum CameraProjection
 class Camera
 {
 public:
-    Camera();
+    Camera(CameraProjection type = PERSPECTIVE);
     ~Camera();
 
     void initFocusCamera(float degree, float radio, glm::vec3 lookAt, glm::vec3 up);

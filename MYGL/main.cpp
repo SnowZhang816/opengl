@@ -25,7 +25,8 @@ void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset);
 bool leftEnter = false;
 bool rightEnter = false;
 
-Camera ca = Camera();
+Camera ca = Camera(ORTHO);
+
 int main()
 {
 
@@ -65,12 +66,13 @@ int main()
 
     float degree = 45;
     float radio = 3;
-    ca.setPosition(glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio));
+    ca.setPosition(glm::vec3(0,0,10));
+    // ca.setPosition(glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio));
     ca.setLookAt(glm::vec3(0));
     ca.setUp(glm::vec3(0.0f, 1.0f, 0.0f));
 
     Grid grid = Grid();
-    Quad q = Quad(100,100);
+    Quad quad = Quad(800,600);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -79,7 +81,7 @@ int main()
         glClearColor(0.f, 0.f, 0.f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        q.draw(&ca);
+        quad.draw(&ca);
         grid.draw(&ca);
 
         glfwSwapBuffers(window);
