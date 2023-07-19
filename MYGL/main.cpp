@@ -6,6 +6,7 @@
 #include "Shader.h"
 #include "std_image.h"
 #include "Texture.h"
+#include "Camera.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -18,19 +19,26 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 void mouse_callback(GLFWwindow *window, double x, double y);
 void mouse_button(GLFWwindow *window, int button, int action, int mods);
+void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset);
 
-float degree = 0;
+
+float degree = 45;
 float radio = 3;
 
 bool leftEnter = false;
 bool rightEnter = false;
 
 glm::vec3 cameraPos = glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio);
+
+float radians = glm::atan(cameraPos.x / cameraPos.z);
+float degree1 = glm::degrees(radians);
+
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+glm::vec3 cameraUp = glm::normalize(glm::vec3(0.0f, 1.0f, 0.0f));
 
 glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
 // float radio = glm::length(cameraTarget - cameraPos);
+Camera ca = Camera();
 
 int main()
 {
@@ -61,6 +69,7 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetMouseButtonCallback(window, mouse_button);
+    glfwSetScrollCallback(window, mouse_scroll);
     // glfwSetCursorEnterCallback()
 
     int maxAttribs;
@@ -228,6 +237,10 @@ int main()
     // 创建并编译第二个顶点着色器
     Shader s2 = Shader("assets/shader/shader2.vsh", "assets/shader/shader2.fsh");
 
+    ca.setPosition(glm::vec3(sin(glm::radians(degree)) * radio, 0.0f, cos(glm::radians(degree)) * radio));
+    ca.setLookAt(glm::vec3(0));
+    ca.setUp(cameraUp);
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -237,21 +250,8 @@ int main()
 
         glm::mat4 model = glm::mat4(1.0f);
         // model = glm::rotate(model, 100.f * (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f)) * model;
-
-        glm::mat4 view = glm::mat4(1.0f);
-        // note that we're translating the scene in the reverse direction of where we want to move
-        // view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-        // view = glm::rotate(view, 30.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-        // shader->setMat4("view", view);
-        // float x = cos(glfwGetTime()) * radio;
-        // float z = sin(glfwGetTime()) * radio;
-        float x = sin(glm::radians(degree)) * radio;
-        float z = cos(glm::radians(degree)) * radio;
-        // view = glm::lookAt(glm::vec3(x, 3, z), glm::vec3(0, 0, 0), glm::vec3(0.0, 1.0, 0.0));
-        view = glm::lookAt(cameraPos, cameraTarget, cameraUp);
-
-        glm::mat4 projection;
-        projection = glm::perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
+        glm::mat4 view = ca.getViewMatrix();
+        glm::mat4 projection = ca.getProjectionMatrix();
 
         grid.setTranslate(model, view, projection);
         grid.draw();
@@ -302,130 +302,187 @@ void processInput(GLFWwindow *window)
     const float rotateSpeed = 0.1f; // adjust accordinglydd
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
-        // radio -= radio * cameraSpeed;
-        // cameraPos.x = sin(glm::radians(degree)) * radio;
-        // cameraPos.z = cos(glm::radians(degree)) * radio;
-
-        cameraPos += glm::normalize(cameraTarget - cameraPos) * cameraSpeed;
-        radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
+        ca.focusMove(cameraSpeed);
     }
 
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
-        // radio += radio * cameraSpeed;
-        // cameraPos.x = sin(glm::radians(degree)) * radio;
-        // cameraPos.z = cos(glm::radians(degree)) * radio;
-
-        cameraPos -= glm::normalize(cameraTarget - cameraPos) * cameraSpeed;
-        radio = glm::length(glm::vec2(cameraTarget.x - cameraPos.x, cameraTarget.z - cameraPos.z));
+        ca.focusMove(-cameraSpeed);
     }
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        degree = degree - rotateSpeed;
-        cameraPos.x = sin(glm::radians(degree)) * radio;
-        cameraPos.z = cos(glm::radians(degree)) * radio;
+        ca.rotateYaw(-rotateSpeed);
     }
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        degree = degree + rotateSpeed;
-        cameraPos.x = sin(glm::radians(degree)) * radio;
-        cameraPos.z = cos(glm::radians(degree)) * radio;
+        ca.rotateYaw(rotateSpeed);
     }
 }
-double xpos; 
+
+double xpos;
 double ypos;
 
 void mouse_callback(GLFWwindow *window, double x, double y)
 {
-    if (leftEnter) {
+    if (leftEnter)
+    {
         // std::cout << "leftEnter mouse_callback: " << x << "," << y << endl;
         glm::vec2 start = glm::vec2(xpos, ypos);
         glm::vec2 end = glm::vec2(x, y);
         glm::vec2 line = end - start;
         xpos = x;
         ypos = y;
-        if (line.x != 0 || line.y != 0) {
+        if (line.x != 0 || line.y != 0)
+        {
             float len = glm::length(line);
             glm::vec2 normal = glm::normalize(line);
             float p = 0;
             float q = 0;
-            glm::vec2 referY = glm::vec2(0,1);
-            glm::vec2 referX = glm::vec2(1,0);        
-            if (end.x > 400 && end.y < 300) {      //第一象限
+            glm::vec2 referY = glm::vec2(0, 1);
+            glm::vec2 referX = glm::vec2(1, 0);
+            float delta = 0;
+            if (end.x > 400 && end.y < 300)
+            { // 第一象限
                 p = glm::dot(normal, referY);
-                glm::vec2 refer2 = glm::vec2(1,0);
+                glm::vec2 refer2 = glm::vec2(1, 0);
                 q = glm::dot(normal, referX);
-                if (p == 0) {
-                    if (q > 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
+                if (p == 0)
+                {
+                    if (q > 0)
+                    {
+                        delta = len * 0.5;
                     }
-                } else {
-                    if (p > 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
+                    else
+                    {
+                        delta = -len * 0.5;
                     }
                 }
-            } else if(end.x < 400 && end.y < 300){ //第二象限
-                p = glm::dot(normal, referY);
-                glm::vec2 refer2 = glm::vec2(1,0);
-                q = glm::dot(normal, referX);
-                if (p == 0) {
-                    if (q > 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
+                else
+                {
+                    if (p > 0)
+                    {
+                        delta = len * 0.5;
                     }
-                } else {
-                    if (p < 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
-                    }
-                }
-            } else if(end.x < 400 && end.y > 300){ //第三象限
-                p = glm::dot(normal, referY);
-                glm::vec2 refer2 = glm::vec2(1,0);
-                q = glm::dot(normal, referX);
-                if (p == 0) {
-                    if (q < 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
-                    }
-                } else {
-                    if (p < 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
-                    }
-                }
-            } else if(end.x > 400 && end.y > 300){ //第四象限
-                p = glm::dot(normal, referY);
-                glm::vec2 refer2 = glm::vec2(1,0);
-                q = glm::dot(normal, referX);
-                if (p == 0) {
-                    if (q < 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
-                    }
-                } else {
-                    if (p > 0) {
-                        degree = degree + len * 0.5;
-                    } else {
-                        degree = degree - len * 0.5;
+                    else
+                    {
+                        delta = -len * 0.5;
                     }
                 }
             }
-            
+            else if (end.x < 400 && end.y < 300)
+            { // 第二象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1, 0);
+                q = glm::dot(normal, referX);
+                if (p == 0)
+                {
+                    if (q > 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+                else
+                {
+                    if (p < 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+            }
+            else if (end.x < 400 && end.y > 300)
+            { // 第三象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1, 0);
+                q = glm::dot(normal, referX);
+                if (p == 0)
+                {
+                    if (q < 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+                else
+                {
+                    if (p < 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+            }
+            else if (end.x > 400 && end.y > 300)
+            { // 第四象限
+                p = glm::dot(normal, referY);
+                glm::vec2 refer2 = glm::vec2(1, 0);
+                q = glm::dot(normal, referX);
+                if (p == 0)
+                {
+                    if (q < 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+                else
+                {
+                    if (p > 0)
+                    {
+                        delta = len * 0.5;
+                    }
+                    else
+                    {
+                        delta = -len * 0.5;
+                    }
+                }
+            }
+
             // std::cout << "degree" << degree << "," << p << endl;
-            cameraPos.x = sin(glm::radians(degree)) * radio;
-            cameraPos.z = cos(glm::radians(degree)) * radio;
+            ca.rotateYaw(delta);
+        }
+    }
+
+    if (rightEnter)
+    {
+        // std::cout << "leftEnter mouse_callback: " << x << "," << y << endl;
+        glm::vec2 start = glm::vec2(xpos, ypos);
+        glm::vec2 end = glm::vec2(x, y);
+        glm::vec2 line = end - start;
+        xpos = x;
+        ypos = y;
+        if (line.x != 0 || line.y != 0)
+        {
+            float len = glm::length(line);
+            glm::vec2 normal = glm::normalize(line);
+            glm::vec2 referY = glm::vec2(0, 1);
+            float p = glm::dot(normal, referY);
+            float delta = 0;
+            if (p > 0) {
+                delta = len * 0.5;
+            } else {
+                delta = -len * 0.5;
+            }
+            // std::cout << "degree" << degree << "," << p << endl;
+            ca.rotatePitch(delta);
         }
     }
 }
@@ -437,7 +494,7 @@ void mouse_button(GLFWwindow *window, int button, int action, int mods)
     if (action == 1 && button == 0)
     {
         leftEnter = true;
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);  
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         glfwGetCursorPos(window, &xpos, &ypos);
     }
 
@@ -446,21 +503,32 @@ void mouse_button(GLFWwindow *window, int button, int action, int mods)
         leftEnter = false;
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         xpos = 0;
-        ypos = 0;  
+        ypos = 0;
     }
 
     if (action == 1 && button == 1)
     {
         rightEnter = true;
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);  
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         glfwGetCursorPos(window, &xpos, &ypos);
     }
 
     if (action == 0 && button == 1)
     {
         rightEnter = false;
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);  
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         xpos = 0;
-        ypos = 0; 
+        ypos = 0;
+    }
+}
+
+void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset)
+{
+    std::cout << "mouse_scroll xoffset" << xoffset << "  yoffset:" << yoffset << endl;
+    float cameraSpeed = 0.1;
+    if (yoffset == 1) {
+         ca.focusMove(cameraSpeed);
+    } else {
+         ca.focusMove(-cameraSpeed);
     }
 }
