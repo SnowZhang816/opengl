@@ -111,6 +111,9 @@ Grid::Grid()
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
 
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
     shader = new Shader("assets/shader/baseshader.vsh", "assets/shader/baseshader.fsh");
 }
 
@@ -122,14 +125,15 @@ Grid::~Grid()
 void Grid::setTranslate(glm::mat4 model, glm::mat4 view, glm::mat4 projection)
 {
     shader->use();
-    shader->setMat4("model", model);
-    shader->setMat4("view", view);
-    shader->setMat4("projection", projection);
+
 }
 
-void Grid::draw()
+void Grid::draw(Camera *ca)
 {
     shader->use();
+    shader->setMat4("model", glm::mat4(1.0f));
+    shader->setMat4("view", ca->getViewMatrix());
+    shader->setMat4("projection", ca->getProjectionMatrix());
 
     glBindVertexArray(ID);
     glLineWidth(2);
