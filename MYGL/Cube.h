@@ -12,5 +12,6 @@ public:
 private:
     Texture *tex1;
     Texture *tex2;
+    Texture *tex3;
 };
 

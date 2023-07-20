@@ -79,8 +79,9 @@ Quad::Quad(float width, float height)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     // texture
-    tex1 = new Texture("assets/image/container.jpg", GL_RGB);
-    tex2 = new Texture("assets/image/awesomeface.png", GL_RGBA);
+    tex1 = new Texture("assets/image/container2.png", GL_RGBA);
+    tex2 = new Texture("assets/image/container.jpg", GL_RGB);
+    tex3 = new Texture("assets/image/awesomeface.png", GL_RGBA);
 
     shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
 }
@@ -98,13 +99,26 @@ void Quad::draw(Camera *ca, Light *light)
     shader->setMat4("view", ca->getViewMatrix());
     shader->setMat4("projection", ca->getProjectionMatrix());
     shader->setFloat("intensity", 0.2);
-    shader->setVec3("lightColor", light->getColor());
-    shader->setVec3("lightPos", light->getPosition());
     shader->setVec3("viewPos", ca->getPosition());
-    shader->setInt("texture2", 1);
-    shader->setInt("texture1", 0);
+    // shader->setVec3("material.ambient", glm::vec3(0.19125f, 0.0735f, 0.0225f));
+    // shader->setVec3("material.diffuse", glm::vec3(0.7038f, 0.27048f, 0.0828f));
+    // shader->setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
+    shader->setFloat("material.shininess", 64.0f);
+    shader->setVec3("light.position", light->getPosition());
+    shader->setVec3("light.ambient", light->getColor() * glm::vec3(0.2f));
+    shader->setVec3("light.diffuse", light->getColor() * glm::vec3(0.5f)); // darken diffuse light a bit
+    shader->setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
+    shader->setVec3("light.direction", glm::vec3(-0.2f, -1.0f, -0.3f)); 
+    shader->setFloat("light.constant",  1.0f);
+    shader->setFloat("light.linear",    0.09f);
+    shader->setFloat("light.quadratic", 0.032f);
+
+    shader->setInt("material.diffuse", 0);
+    shader->setInt("material.specular", 1);
+    shader->setInt("texture1", 2);
     tex1->use(GL_TEXTURE0);
     tex2->use(GL_TEXTURE1);
+    tex3->use(GL_TEXTURE2);
 
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

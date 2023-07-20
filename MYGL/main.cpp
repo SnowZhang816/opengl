@@ -104,7 +104,11 @@ int main()
             delta = -delta;
         }
 
-        light.setColor(glm::vec3(total));
+        glm::vec3 lightColor = glm::vec3(1.0f);
+        // lightColor.x = static_cast<float>(sin(glfwGetTime() * 2.0));
+        // lightColor.y = static_cast<float>(sin(glfwGetTime() * 0.7));
+        // lightColor.z = static_cast<float>(sin(glfwGetTime() * 1.3));
+        light.setColor(lightColor);
 
         light.draw(&ca);
         quad.draw(&ca, &light);
