@@ -13,6 +13,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "Grid.h"
 #include "Quad.h"
+#include "Light.h"
+#include "Cube.h"
 
 using namespace std;
 
@@ -25,7 +27,7 @@ void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset);
 bool leftEnter = false;
 bool rightEnter = false;
 
-Camera ca = Camera(ORTHO);
+Camera ca = Camera(PERSPECTIVE);
 
 int main()
 {
@@ -64,16 +66,25 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    float degree = 45;
-    float radio = 3;
-    ca.setPosition(glm::vec3(0,0,10));
+    ca.setPosition(glm::vec3(0,30.0f,60.0f));
     // ca.setPosition(glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio));
     ca.setLookAt(glm::vec3(0));
     ca.setUp(glm::vec3(0.0f, 1.0f, 0.0f));
 
     Grid grid = Grid();
-    Quad quad = Quad(800,600);
 
+    Quad quad = Quad(30,6);
+    quad.setPosition(glm::vec3(20, 0, -30));
+
+    Cube cube = Cube(10,10,10);
+    cube.setPosition(glm::vec3(0, 0, 0));
+
+    Light light = Light(glm::vec3(1,1,1));
+    float radio = 10;
+    float degree = 0;
+    float delta = 0.0003;
+    float total = 0;
+    light.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -81,7 +92,23 @@ int main()
         glClearColor(0.f, 0.f, 0.f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        quad.draw(&ca);
+        degree = degree + 0.01;
+        light.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+        total += delta;
+        if (total >= 1) {
+            total = 1;
+            delta = -delta;
+        } 
+        if (total <= 0) {
+            total = 0;
+            delta = -delta;
+        }
+
+        light.setColor(glm::vec3(total));
+
+        light.draw(&ca);
+        quad.draw(&ca, &light);
+        cube.draw(&ca, &light);
         grid.draw(&ca);
 
         glfwSwapBuffers(window);
@@ -105,26 +132,43 @@ void processInput(GLFWwindow *window)
         glfwSetWindowShouldClose(window, true);
     }
 
-    const float cameraSpeed = 0.01; // adjust accordingly
+    const float cameraSpeed = 1; // adjust accordingly
     const float rotateSpeed = 0.1f; // adjust accordinglydd
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
-        ca.focusMove(cameraSpeed);
+        if (ca.getCameraProjection() == PERSPECTIVE) {
+             ca.focusMove(cameraSpeed);
+        } else {
+            ca.move(glm::vec3(0, cameraSpeed * 0.1, 0));
+        }
+       
     }
 
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
-        ca.focusMove(-cameraSpeed);
+        if (ca.getCameraProjection() == PERSPECTIVE) {
+             ca.focusMove(-cameraSpeed);
+        } else {
+            ca.move(glm::vec3(0, -cameraSpeed * 0.1, 0));
+        }
     }
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        ca.rotateYaw(-rotateSpeed);
+        if (ca.getCameraProjection() == PERSPECTIVE) {
+            ca.rotateYaw(-rotateSpeed);
+        } else {
+            ca.move(glm::vec3(-cameraSpeed * 0.1, 0, 0));
+        }
     }
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        ca.rotateYaw(rotateSpeed);
+        if (ca.getCameraProjection() == PERSPECTIVE) {
+            ca.rotateYaw(rotateSpeed);
+        } else {
+            ca.move(glm::vec3(cameraSpeed * 0.1, 0, 0));
+        }
     }
 }
 
@@ -332,7 +376,7 @@ void mouse_button(GLFWwindow *window, int button, int action, int mods)
 void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset)
 {
     std::cout << "mouse_scroll xoffset" << xoffset << "  yoffset:" << yoffset << endl;
-    float cameraSpeed = 0.1;
+    float cameraSpeed = 1;
     if (yoffset == 1) {
          ca.focusMove(cameraSpeed);
     } else {

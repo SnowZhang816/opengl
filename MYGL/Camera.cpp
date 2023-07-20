@@ -4,9 +4,9 @@
 Camera::Camera(CameraProjection type) : projectionType(type), position(glm::vec3(0)), lookAt(glm::vec3(0)), up(glm::vec3(0))
 {
     if (projectionType == PERSPECTIVE) {
-        perspective(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
+        perspective(45.0f, 800.0f / 600.0f, 0.1f, 1000.0f);
     } else {
-        ortho(-400, 400.0f, 300.0f, -300.0f, 0.1f, 100.0f);
+        ortho(-400, 400.0f, 300.0f, -300.0f, 0.1f, 1000.0f);
     }
 
     yaw = 0;
@@ -113,6 +113,15 @@ void Camera::focusMove(float delta)
     updateViewMatrix();
 }
 
+void Camera::move(glm::vec3 delta)
+{
+    if (projectionType == ORTHO) {
+        position += delta;
+        lookAt = glm::vec3(position.x, position.y, 0);
+    }
+    updateViewMatrix();
+}
+
 glm::mat4 Camera::getViewMatrix()
 {
     return view;
@@ -123,5 +132,6 @@ glm::mat4 Camera::getProjectionMatrix(){
 }
 
 void Camera::updateViewMatrix() {
+    std::cout << "updateViewMatrix:" << position.x << "," << position.y << ","  << position.z <<  std::endl;
     view = glm::lookAt(position, lookAt, up);
 }

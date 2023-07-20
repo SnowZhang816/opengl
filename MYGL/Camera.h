@@ -51,6 +51,8 @@ public:
 
     void focusMove(float delta);
 
+    void move(glm::vec3 delta);
+
 protected:
     void updateViewMatrix();
 

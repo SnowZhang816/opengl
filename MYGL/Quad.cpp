@@ -34,12 +34,19 @@ Quad::Quad(float width, float height)
         1, 0,
         0, 0,
     };
+    float normal[] = {
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+    };
 
-    unsigned int vbo, ebo, cbo, tvbo;
+    unsigned int vbo, ebo, cbo, tbo, nbo;
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
     glGenBuffers(1, &cbo);
-    glGenBuffers(1, &tvbo);
+    glGenBuffers(1, &tbo);
+    glGenBuffers(1, &nbo);
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
@@ -54,13 +61,18 @@ Quad::Quad(float width, float height)
     glBufferData(GL_ARRAY_BUFFER, sizeof(colours), colours, GL_STATIC_DRAW);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 
-    glBindBuffer(GL_ARRAY_BUFFER, tvbo);
+    glBindBuffer(GL_ARRAY_BUFFER, tbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(texCoords), texCoords, GL_STATIC_DRAW);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, nbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(normal), normal, GL_STATIC_DRAW);
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
     glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(3);
 
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -77,17 +89,20 @@ Quad::~Quad()
 {
 }
 
-void Quad::draw(Camera *ca)
+void Quad::draw(Camera *ca, Light *light)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
 
     shader->use();
-    shader->setMat4("model", glm::mat4(1.0f));
+    shader->setMat4("model", model);
     shader->setMat4("view", ca->getViewMatrix());
     shader->setMat4("projection", ca->getProjectionMatrix());
-    shader->setInt("texture1", 0);
-    shader->setInt("texture2", 1);
     shader->setFloat("intensity", 0.2);
+    shader->setVec3("lightColor", light->getColor());
+    shader->setVec3("lightPos", light->getPosition());
+    shader->setVec3("viewPos", ca->getPosition());
+    shader->setInt("texture2", 1);
+    shader->setInt("texture1", 0);
     tex1->use(GL_TEXTURE0);
     tex2->use(GL_TEXTURE1);
 
