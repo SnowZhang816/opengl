@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\learn\opengl\build\assimp\CMakeFiles\8c97d70bf45382f51644ffe714aac4be\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\learn\opengl\assimp\assimp-config-version.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\assimp-config.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\assimp.pc.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\assimpTargets-debug.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\assimpTargets-release.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\assimpTargets.cmake.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\FindDirectX.cmake">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\FindPkgMacros.cmake">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\FindRT.cmake">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\FindZLIB.cmake">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\PrecompiledHeader.cmake">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake-modules\cmake_uninstall.cmake.in">
+      <Filter>Buildsystem Input Files\cmake-modules</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\cmake\HunterGate.cmake">
+      <Filter>Buildsystem Input Files\cmake</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\code\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\code</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\contrib\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\contrib</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\contrib\irrXML\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\contrib\irrXML</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\contrib\zlib\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\contrib\zlib</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\contrib\zlib\zconf.h.cmakein">
+      <Filter>Buildsystem Input Files\contrib\zlib</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\contrib\zlib\zlib.pc.cmakein">
+      <Filter>Buildsystem Input Files\contrib\zlib</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\include\assimp\config.h.in">
+      <Filter>Buildsystem Input Files\include\assimp</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\revision.h.in">
+      <Filter>Buildsystem Input Files</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\test\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\test</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\test\headercheck\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\test\headercheck</Filter>
+    </None>
+    <None Include="E:\learn\opengl\assimp\tools\assimp_cmd\CMakeLists.txt">
+      <Filter>Buildsystem Input Files\tools\assimp_cmd</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{17A232B4-8C24-3825-AA4A-2162A3630587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F77A32AA-346C-34E2-A6E7-778E5C688197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files">
+      <UniqueIdentifier>{FDB5488F-BC5D-3063-9546-24761E43DAE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\cmake">
+      <UniqueIdentifier>{806E8C9F-13A3-3A2F-BBE0-71478B864A65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\cmake-modules">
+      <UniqueIdentifier>{5D3E1030-AC73-34C2-BA67-4C62C0AB8F13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\code">
+      <UniqueIdentifier>{21B24D64-4574-3399-BA51-4D353490E951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\contrib">
+      <UniqueIdentifier>{8124D8A8-4E2F-3FF3-A533-66F3F83B545D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\contrib\irrXML">
+      <UniqueIdentifier>{26F2C81C-557C-3955-A290-5BB6E9FD98C6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\contrib\zlib">
+      <UniqueIdentifier>{75F4D752-814C-3FF5-9EDE-C7D16262613C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\include\assimp">
+      <UniqueIdentifier>{084F56B8-3FF5-3799-863C-50C0DBA2E976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\test">
+      <UniqueIdentifier>{DC4210C0-711B-3BC0-8881-D4BC6D317F1E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\test\headercheck">
+      <UniqueIdentifier>{69502621-3ACD-38D4-A1DA-BC72FDAAC2D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Buildsystem Input Files\tools\assimp_cmd">
+      <UniqueIdentifier>{0743FB53-7741-3DA9-9693-36D9613EDEBE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

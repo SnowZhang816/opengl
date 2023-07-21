@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B9C6ABBE-FF27-37B9-8173-846815714D69}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>assimp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\learn\opengl\build\assimp\code\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">assimp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">assimp-vc142-mtd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\learn\opengl\build\assimp\code\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">assimp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">assimp-vc142-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\learn\opengl\build\assimp\code\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">assimp.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">assimp-vc142-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\learn\opengl\build\assimp\code\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">assimp.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">assimp-vc142-mt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_DEBUG;EBUG:FULL;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Debug";assimp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;EBUG:FULL;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Debug\";assimp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\Debug\zlibstaticd.lib;..\contrib\irrXML\Debug\IrrXMLd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/learn/opengl/build/assimp/code/Debug/assimp-vc142-mtd.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/learn/opengl/build/assimp/code/Debug/assimp-vc142-mtd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="Release";assimp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"Release\";assimp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\Release\zlibstatic.lib;..\contrib\irrXML\Release\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/learn/opengl/build/assimp/code/Release/assimp-vc142-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/learn/opengl/build/assimp/code/Release/assimp-vc142-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="MinSizeRel";assimp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"MinSizeRel\";assimp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\MinSizeRel\zlibstatic.lib;..\contrib\irrXML\MinSizeRel\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/learn/opengl/build/assimp/code/MinSizeRel/assimp-vc142-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/learn/opengl/build/assimp/code/MinSizeRel/assimp-vc142-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR="RelWithDebInfo";assimp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;MINIZ_USE_UNALIGNED_LOADS_AND_STORES=0;ASSIMP_IMPORTER_GLTF_USE_OPEN3DGC=1;ASSIMP_BUILD_DLL_EXPORT;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;OPENDDLPARSER_BUILD;CMAKE_INTDIR=\"RelWithDebInfo\";assimp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\learn\opengl\build\assimp\include;E:\learn\opengl\build\assimp;E:\learn\opengl\assimp\include;E:\learn\opengl\assimp\code;E:\learn\opengl\assimp\.;E:\learn\opengl\assimp\contrib\zlib;E:\learn\opengl\build\assimp\contrib\zlib;E:\learn\opengl\assimp\code\..\contrib\rapidjson\include;E:\learn\opengl\assimp\code\..\contrib;E:\learn\opengl\assimp\code\..\contrib\unzip;E:\learn\opengl\assimp\contrib\irrXML;E:\learn\opengl\assimp\code\..\contrib\openddlparser\include;E:\learn\opengl\assimp\code\..\include;E:\learn\opengl\build\assimp\code\..\include;E:\learn\opengl\assimp\code\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\contrib\zlib\RelWithDebInfo\zlibstatic.lib;..\contrib\irrXML\RelWithDebInfo\IrrXML.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/learn/opengl/build/assimp/code/RelWithDebInfo/assimp-vc142-mt.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/learn/opengl/build/assimp/code/RelWithDebInfo/assimp-vc142-mt.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\learn\opengl\assimp\code\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/learn/opengl/assimp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/learn/opengl/assimp -BE:/learn/opengl/build/assimp --check-stamp-file E:/learn/opengl/build/assimp/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;E:\learn\opengl\assimp\cmake-modules\FindRT.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\learn\opengl\build\assimp\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/learn/opengl/assimp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/learn/opengl/assimp -BE:/learn/opengl/build/assimp --check-stamp-file E:/learn/opengl/build/assimp/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;E:\learn\opengl\assimp\cmake-modules\FindRT.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\learn\opengl\build\assimp\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/learn/opengl/assimp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/learn/opengl/assimp -BE:/learn/opengl/build/assimp --check-stamp-file E:/learn/opengl/build/assimp/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;E:\learn\opengl\assimp\cmake-modules\FindRT.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\learn\opengl\build\assimp\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/learn/opengl/assimp/code/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/learn/opengl/assimp -BE:/learn/opengl/build/assimp --check-stamp-file E:/learn/opengl/build/assimp/code/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;E:\learn\opengl\assimp\cmake-modules\FindRT.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\learn\opengl\build\assimp\code\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Assimp.cpp" />
+    <ResourceCompile Include="E:\learn\opengl\assimp\code\res\assimp.rc" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\CApi\CInterfaceIOWrapper.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\CApi\CInterfaceIOWrapper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\BaseImporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\BaseProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\BaseProcess.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\Importer.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\ScenePrivate.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\PostStepRegistry.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\ImporterRegistry.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\DefaultProgressHandler.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\DefaultIOStream.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\DefaultIOSystem.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\ZipArchiveIOSystem.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\PolyTools.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Importer.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\IFF.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\SGSpatialSort.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\VertexTriangleAdjacency.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\VertexTriangleAdjacency.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\SpatialSort.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\SceneCombiner.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\ScenePreprocessor.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\ScenePreprocessor.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\SkeletonMeshBuilder.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\SplitByBoneCountProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\SplitByBoneCountProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\StandardShapes.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\TargetAnimation.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\TargetAnimation.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\RemoveComments.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Subdivision.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\scene.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Bitmap.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Version.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\CreateAnimMesh.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\simd.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\simd.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Logger.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\Win32DebugLogStream.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\DefaultLogger.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\FileLogStream.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Common\StdOStreamLogStream.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Common\Exporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\CApi\AssimpCExport.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\BlobIOSystem.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\CalcTangentsProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\CalcTangentsProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ComputeUVMappingProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ComputeUVMappingProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ConvertToLHProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ConvertToLHProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\EmbedTexturesProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\EmbedTexturesProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\FindDegenerates.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\FindDegenerates.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\FindInstancesProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\FindInstancesProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\FindInvalidDataProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\FindInvalidDataProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\FixNormalsStep.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\FixNormalsStep.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\DropFaceNormalsProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\DropFaceNormalsProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\GenFaceNormalsProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\GenFaceNormalsProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\GenVertexNormalsProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\GenVertexNormalsProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\PretransformVertices.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\PretransformVertices.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ImproveCacheLocality.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ImproveCacheLocality.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\JoinVerticesProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\JoinVerticesProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\LimitBoneWeightsProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\LimitBoneWeightsProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\RemoveRedundantMaterials.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\RemoveRedundantMaterials.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\RemoveVCProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\RemoveVCProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\SortByPTypeProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\SortByPTypeProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\SplitLargeMeshes.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\SplitLargeMeshes.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\TextureTransform.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\TextureTransform.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\TriangulateProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\TriangulateProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ValidateDataStructure.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ValidateDataStructure.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\OptimizeGraph.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\OptimizeGraph.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\OptimizeMeshes.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\OptimizeMeshes.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\DeboneProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\DeboneProcess.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ProcessHelper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ProcessHelper.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\MakeVerboseFormat.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\MakeVerboseFormat.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\ScaleProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\ScaleProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\PostProcessing\GenBoundingBoxesProcess.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\PostProcessing\GenBoundingBoxesProcess.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Material\MaterialSystem.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Material\MaterialSystem.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\STEPParser\STEPFileReader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\STEPParser\STEPFileReader.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\STEPParser\STEPFileEncoding.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\STEPParser\STEPFileEncoding.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\AMF\AMFImporter.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\AMF\AMFImporter_Macro.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\AMF\AMFImporter_Node.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\AMF\AMFImporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\AMF\AMFImporter_Geometry.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\AMF\AMFImporter_Material.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\AMF\AMFImporter_Postprocess.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3DS\3DSConverter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3DS\3DSHelper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3DS\3DSLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3DS\3DSLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\AC\ACLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\AC\ACLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\ASE\ASELoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\ASE\ASELoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\ASE\ASEParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\ASE\ASEParser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Assbin\AssbinLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assbin\AssbinLoader.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\B3D\B3DImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\B3D\B3DImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\BVH\BVHLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\BVH\BVHLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Collada\ColladaHelper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Collada\ColladaLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Collada\ColladaLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Collada\ColladaParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Collada\ColladaParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\DXF\DXFLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\DXF\DXFLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\DXF\DXFHelper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\CSM\CSMLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\CSM\CSMLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\HMP\HMPFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\HMP\HMPLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\HMP\HMPLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\HMP\HalfLifeFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Irr\IRRMeshLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Irr\IRRMeshLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Irr\IRRShared.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Irr\IRRShared.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Irr\IRRLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Irr\IRRLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\LWO\LWOAnimation.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\LWO\LWOAnimation.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\LWO\LWOBLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\LWO\LWOFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\LWO\LWOLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\LWO\LWOLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\LWO\LWOMaterial.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\LWS\LWSLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\LWS\LWSLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD2\MD2FileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MD2\MD2Loader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD2\MD2Loader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD2\MD2NormalTable.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD3\MD3FileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MD3\MD3Loader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD3\MD3Loader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MD5\MD5Loader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD5\MD5Loader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MD5\MD5Parser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MD5\MD5Parser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDC\MDCFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MDC\MDCLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDC\MDCLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDC\MDCNormalTable.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDL\MDLDefaultColorMap.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDL\MDLFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MDL\MDLLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MDL\MDLLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MDL\MDLMaterialLoader.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\NFF\NFFLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\NFF\NFFLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\NDO\NDOLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\NDO\NDOLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\OFF\OFFLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\OFF\OFFLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjFileData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Obj\ObjFileImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjFileImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Obj\ObjFileMtlImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjFileMtlImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Obj\ObjFileParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjFileParser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjTools.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ogre\OgreImporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ogre\OgreStructs.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ogre\OgreParsingUtils.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ogre\OgreBinarySerializer.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ogre\OgreXmlSerializer.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ogre\OgreImporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ogre\OgreStructs.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ogre\OgreBinarySerializer.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ogre\OgreXmlSerializer.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ogre\OgreMaterial.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\OpenGEX\OpenGEXImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\OpenGEX\OpenGEXImporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\OpenGEX\OpenGEXStructs.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ply\PlyLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ply\PlyLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ply\PlyParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ply\PlyParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MS3D\MS3DLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MS3D\MS3DLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\COB\COBLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\COB\COBLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\COB\COBScene.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderDNA.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderDNA.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderDNA.inl" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderScene.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderScene.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderSceneGen.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderIntermediate.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderModifier.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderModifier.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderBMesh.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderBMesh.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderTessellator.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderTessellator.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Blender\BlenderCustomData.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Blender\BlenderCustomData.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCReaderGen1_2x3.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCReaderGen2_2x3.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCReaderGen_2x3.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCUtil.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCUtil.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCGeometry.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCMaterial.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCProfile.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCCurve.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCBoolean.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\IFC\IFCOpenings.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\XGL\XGLLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\XGL\XGLLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXCompileConfig.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXTokenizer.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXTokenizer.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXImportSettings.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXConverter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXConverter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXUtil.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXUtil.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXDocument.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXDocument.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXProperties.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXProperties.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXMeshGeometry.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXMeshGeometry.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXMaterial.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXModel.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXAnimation.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXNodeAttribute.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXDeformer.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXBinaryTokenizer.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXDocumentUtil.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXCommon.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Q3D\Q3DLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Q3D\Q3DLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Q3BSP\Q3BSPFileData.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Q3BSP\Q3BSPFileParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Q3BSP\Q3BSPFileParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Q3BSP\Q3BSPFileImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Q3BSP\Q3BSPFileImporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Raw\RawLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Raw\RawLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\SIB\SIBImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\SIB\SIBImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\SMD\SMDLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\SMD\SMDLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\STL\STLLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\STL\STLLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Terragen\TerragenLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Terragen\TerragenLoader.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Unreal\UnrealLoader.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Unreal\UnrealLoader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X\XFileHelper.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X\XFileImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X\XFileImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X\XFileParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X\XFileParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X3D\X3DImporter.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Geometry2D.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Geometry3D.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Group.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Light.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Macro.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Metadata.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Networking.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Node.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Postprocess.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Rendering.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Shape.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DImporter_Texturing.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X3D\FIReader.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\FIReader.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DVocabulary.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFCommon.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\glTF\glTFCommon.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFAsset.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFAsset.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFAssetWriter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFAssetWriter.inl" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\glTF\glTFImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFImporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2Asset.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2Asset.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2AssetWriter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2AssetWriter.inl" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\glTF2\glTF2Importer.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2Importer.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3MF\D3MFImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3MF\D3MFImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3MF\D3MFOpcPackage.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3MF\D3MFOpcPackage.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3MF\3MFXmlTags.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MMD\MMDCpp14.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MMD\MMDImporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MMD\MMDImporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MMD\MMDPmdParser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MMD\MMDPmxParser.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\MMD\MMDPmxParser.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\MMD\MMDVmdParser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Step\STEPFile.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepFileImporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepFileImporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepFileGen1.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepFileGen2.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepFileGen3.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Importer\StepFile\StepReaderGen.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3DS\3DSExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3DS\3DSExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Assbin\AssbinExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assbin\AssbinExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Assxml\AssxmlExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assxml\AssxmlExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Collada\ColladaExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Collada\ColladaExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Obj\ObjExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Obj\ObjExporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\OpenGEX\OpenGEXExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\OpenGEX\OpenGEXExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Ply\PlyExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Ply\PlyExporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXExportNode.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXExportNode.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\FBX\FBXExportProperty.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\FBX\FBXExportProperty.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\STL\STLExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\STL\STLExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X\XFileExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X\XFileExporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\X3D\X3DExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\X3D\X3DExporter.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF\glTFExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\glTF\glTFExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\glTF2\glTF2Exporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\glTF2\glTF2Exporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\3MF\D3MFExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\3MF\D3MFExporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assjson\cencode.c" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Assjson\cencode.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assjson\json_exporter.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Assjson\mesh_splitter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Assjson\mesh_splitter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\code\Step\StepExporter.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\code\Step\StepExporter.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\irrXMLWrapper.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\unzip\crypt.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\unzip\ioapi.c" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\unzip\ioapi.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\unzip\unzip.c" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\unzip\unzip.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\common\shapes.cc" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\common\shapes.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\common\utils.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\cdt.cc" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\cdt.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\sweep.cc" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\sweep.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.cc" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\clipper\clipper.hpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\clipper\clipper.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\OpenDDLParser.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\DDLNode.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\OpenDDLCommon.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\OpenDDLExport.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\Value.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\openddlparser\code\OpenDDLStream.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParser.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\OpenDDLExport.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\OpenDDLStream.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\DDLNode.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\openddlparser\include\openddlparser\Value.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcAdjacencyInfo.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcBinaryStream.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcCommon.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDVEncodeParams.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcDynamicVector.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcFIFO.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTimer.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTools.cpp" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleFans.cpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleFans.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcVector.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\Open3DGC\o3dgcVector.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\zip\src\miniz.h" />
+    <ClCompile Include="E:\learn\opengl\assimp\contrib\zip\src\zip.c" />
+    <ClInclude Include="E:\learn\opengl\assimp\contrib\zip\src\zip.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\anim.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\aabb.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\ai_assert.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\camera.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\color4.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\color4.inl" />
+    <ClInclude Include="E:\learn\opengl\build\assimp\include\assimp\config.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\defs.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Defines.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\cfileio.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\light.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\material.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\material.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\matrix3x3.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\matrix4x4.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\mesh.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\pbrmaterial.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\postprocess.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\quaternion.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\quaternion.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\scene.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\metadata.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\texture.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\types.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\vector2.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\vector2.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\vector3.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\vector3.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\version.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\cimport.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\importerdesc.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Importer.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\cexport.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\DefaultIOStream.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\DefaultIOSystem.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\ZipArchiveIOSystem.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SceneCombiner.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\fast_atof.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\qnan.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\BaseImporter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Hash.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\MemoryIOWrapper.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\ParsingUtils.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\StreamReader.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\StreamWriter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\StringComparison.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\StringUtils.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SGSpatialSort.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\GenericProperty.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SpatialSort.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SkeletonMeshBuilder.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SmoothingGroups.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\SmoothingGroups.inl" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\StandardShapes.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\RemoveComments.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Subdivision.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Vertex.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\LineSplitter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\TinyFormatter.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Profiler.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\LogAux.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Bitmap.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\XMLTools.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\IOStreamBuffer.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\CreateAnimMesh.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\MathFunctions.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Macros.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Exceptional.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\ByteSwapper.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="E:\learn\opengl\assimp\include\assimp\Compiler\pstdint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\learn\opengl\build\assimp\ZERO_CHECK.vcxproj">
+      <Project>{7640FE15-D9DB-3CD6-A271-F78496ED1A8F}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\learn\opengl\build\assimp\contrib\irrXML\IrrXML.vcxproj">
+      <Project>{342CA8FB-4CB6-3CD5-903C-D17F3C497459}</Project>
+      <Name>IrrXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\learn\opengl\build\assimp\contrib\zlib\zlibstatic.vcxproj">
+      <Project>{E2BA4287-36E5-33D6-8E8D-2B858124AEAA}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

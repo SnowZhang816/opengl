@@ -1,0 +1,548 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:54 (PROJECT)"
+    message: |
+      The system is: Windows - 10.0.19044 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:54 (PROJECT)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+      版权所有(C) Microsoft Corporation。保留所有权利。
+      
+      生成启动时间为 2023/7/21 18:02:58。
+      节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdC\\CompilerIdC.vcxproj”(默认目标)。
+      PrepareForBuild:
+        正在创建目录“Debug\\”。
+        正在创建目录“Debug\\CompilerIdC.tlog\\”。
+      InitializeBuildStatus:
+        正在创建“Debug\\CompilerIdC.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        正在删除文件“Debug\\CompilerIdC.tlog\\unsuccessfulbuild”。
+        正在对“Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate”执行 Touch 任务。
+      已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdC\\CompilerIdC.vcxproj”(默认目标)的操作。
+      
+      已成功生成。
+          0 个警告
+          0 个错误
+      
+      已用时间 00:00:01.41
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        E:/learn/opengl/build/assimp/CMakeFiles/3.27.0-rc4/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:54 (PROJECT)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+      版权所有(C) Microsoft Corporation。保留所有权利。
+      
+      生成启动时间为 2023/7/21 18:03:00。
+      节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj”(默认目标)。
+      PrepareForBuild:
+        正在创建目录“Debug\\”。
+        正在创建目录“Debug\\CompilerIdCXX.tlog\\”。
+      InitializeBuildStatus:
+        正在创建“Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc142.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        正在删除文件“Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild”。
+        正在对“Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate”执行 Touch 任务。
+      已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\3.27.0-rc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj”(默认目标)的操作。
+      
+      已成功生成。
+          0 个警告
+          0 个错误
+      
+      已用时间 00:00:01.19
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        E:/learn/opengl/build/assimp/CMakeFiles/3.27.0-rc4/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:54 (PROJECT)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-5ayklk"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-5ayklk"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-5ayklk'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_48429.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:02。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-5ayklk\\cmTC_48429.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_48429.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-5ayklk\\Debug\\”。
+          正在创建目录“cmTC_48429.dir\\Debug\\cmTC_48429.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_48429.dir\\Debug\\cmTC_48429.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_48429.dir\\Debug\\\\" /Fd"cmTC_48429.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CMakeCCompilerABI.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_48429.dir\\Debug\\\\" /Fd"cmTC_48429.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-5ayklk\\Debug\\cmTC_48429.exe" /INCREMENTAL /ILK:"cmTC_48429.dir\\Debug\\cmTC_48429.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-5ayklk/Debug/cmTC_48429.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-5ayklk/Debug/cmTC_48429.lib" /MACHINE:X64  /machine:x64 cmTC_48429.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_48429.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-5ayklk\\Debug\\cmTC_48429.exe
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_48429.dir\\Debug\\cmTC_48429.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_48429.dir\\Debug\\cmTC_48429.tlog\\cmTC_48429.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-5ayklk\\cmTC_48429.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:01.13
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:54 (PROJECT)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-7rp9ir"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-7rp9ir"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-7rp9ir'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_f5acd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:03。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-7rp9ir\\cmTC_f5acd.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_f5acd.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-7rp9ir\\Debug\\”。
+          正在创建目录“cmTC_f5acd.dir\\Debug\\cmTC_f5acd.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_f5acd.dir\\Debug\\cmTC_f5acd.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f5acd.dir\\Debug\\\\" /Fd"cmTC_f5acd.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CMakeCXXCompilerABI.cpp
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f5acd.dir\\Debug\\\\" /Fd"cmTC_f5acd.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-7rp9ir\\Debug\\cmTC_f5acd.exe" /INCREMENTAL /ILK:"cmTC_f5acd.dir\\Debug\\cmTC_f5acd.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-7rp9ir/Debug/cmTC_f5acd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-7rp9ir/Debug/cmTC_f5acd.lib" /MACHINE:X64  /machine:x64 cmTC_f5acd.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_f5acd.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-7rp9ir\\Debug\\cmTC_f5acd.exe
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_f5acd.dir\\Debug\\cmTC_f5acd.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_f5acd.dir\\Debug\\cmTC_f5acd.tlog\\cmTC_f5acd.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-7rp9ir\\cmTC_f5acd.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:01.23
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:35 (check_include_file)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-twx2vk"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-twx2vk"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-twx2vk'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_c1a38.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:06。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\cmTC_c1a38.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_c1a38.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\Debug\\”。
+          正在创建目录“cmTC_c1a38.dir\\Debug\\cmTC_c1a38.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_c1a38.dir\\Debug\\cmTC_c1a38.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c1a38.dir\\Debug\\\\" /Fd"cmTC_c1a38.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\CheckIncludeFile.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CheckIncludeFile.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c1a38.dir\\Debug\\\\" /Fd"cmTC_c1a38.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\CheckIncludeFile.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\Debug\\cmTC_c1a38.exe" /INCREMENTAL /ILK:"cmTC_c1a38.dir\\Debug\\cmTC_c1a38.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-twx2vk/Debug/cmTC_c1a38.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-twx2vk/Debug/cmTC_c1a38.lib" /MACHINE:X64  /machine:x64 cmTC_c1a38.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_c1a38.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\Debug\\cmTC_c1a38.exe
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_c1a38.dir\\Debug\\cmTC_c1a38.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_c1a38.dir\\Debug\\cmTC_c1a38.tlog\\cmTC_c1a38.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-twx2vk\\cmTC_c1a38.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:01.26
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:36 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-dyc6d6"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-dyc6d6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-dyc6d6'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_21477.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:07。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\cmTC_21477.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_21477.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\Debug\\”。
+          正在创建目录“cmTC_21477.dir\\Debug\\cmTC_21477.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_21477.dir\\Debug\\cmTC_21477.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_21477.dir\\Debug\\\\" /Fd"cmTC_21477.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\CheckIncludeFile.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CheckIncludeFile.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_21477.dir\\Debug\\\\" /Fd"cmTC_21477.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\CheckIncludeFile.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\Debug\\cmTC_21477.exe" /INCREMENTAL /ILK:"cmTC_21477.dir\\Debug\\cmTC_21477.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-dyc6d6/Debug/cmTC_21477.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-dyc6d6/Debug/cmTC_21477.lib" /MACHINE:X64  /machine:x64 cmTC_21477.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_21477.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\Debug\\cmTC_21477.exe
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_21477.dir\\Debug\\cmTC_21477.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_21477.dir\\Debug\\cmTC_21477.tlog\\cmTC_21477.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-dyc6d6\\cmTC_21477.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:01.16
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:37 (check_include_file)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-y1dk7r"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-y1dk7r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-y1dk7r'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_0cfae.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:09。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\cmTC_0cfae.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_0cfae.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\Debug\\”。
+          正在创建目录“cmTC_0cfae.dir\\Debug\\cmTC_0cfae.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_0cfae.dir\\Debug\\cmTC_0cfae.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0cfae.dir\\Debug\\\\" /Fd"cmTC_0cfae.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\CheckIncludeFile.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CheckIncludeFile.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0cfae.dir\\Debug\\\\" /Fd"cmTC_0cfae.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\CheckIncludeFile.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\Debug\\cmTC_0cfae.exe" /INCREMENTAL /ILK:"cmTC_0cfae.dir\\Debug\\cmTC_0cfae.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-y1dk7r/Debug/cmTC_0cfae.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-y1dk7r/Debug/cmTC_0cfae.lib" /MACHINE:X64  /machine:x64 cmTC_0cfae.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_0cfae.vcxproj -> E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\Debug\\cmTC_0cfae.exe
+        FinalizeBuildStatus:
+          正在删除文件“cmTC_0cfae.dir\\Debug\\cmTC_0cfae.tlog\\unsuccessfulbuild”。
+          正在对“cmTC_0cfae.dir\\Debug\\cmTC_0cfae.tlog\\cmTC_0cfae.lastbuildstate”执行 Touch 任务。
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-y1dk7r\\cmTC_0cfae.vcxproj”(默认目标)的操作。
+        
+        已成功生成。
+            0 个警告
+            0 个错误
+        
+        已用时间 00:00:01.13
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "contrib/zlib/CMakeLists.txt:55 (check_type_size)"
+    checks:
+      - "Check size of off64_t"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-qbf5ak"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-qbf5ak"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "HAVE_OFF64_T"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-qbf5ak'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_32d09.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:10。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_32d09.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\Debug\\”。
+          正在创建目录“cmTC_32d09.dir\\Debug\\cmTC_32d09.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_32d09.dir\\Debug\\cmTC_32d09.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_32d09.dir\\Debug\\\\" /Fd"cmTC_32d09.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          OFF64_T.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_32d09.dir\\Debug\\\\" /Fd"cmTC_32d09.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c"
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(29,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(30,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(31,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(32,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(33,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(29,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(30,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(31,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(32,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\OFF64_T.c(33,12): error C2065: “off64_t”: 未声明的标识符 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-qbf5ak\\cmTC_32d09.vcxproj]
+        
+            0 个警告
+            5 个错误
+        
+        已用时间 00:00:00.57
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:64 (check_function_exists)"
+    checks:
+      - "Looking for fseeko"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-ms7yg1"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-ms7yg1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "HAVE_FSEEKO"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-ms7yg1'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_e2af7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:11。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_e2af7.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\Debug\\”。
+          正在创建目录“cmTC_e2af7.dir\\Debug\\cmTC_e2af7.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_e2af7.dir\\Debug\\cmTC_e2af7.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e2af7.dir\\Debug\\\\" /Fd"cmTC_e2af7.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\CheckFunctionExists.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CheckFunctionExists.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e2af7.dir\\Debug\\\\" /Fd"cmTC_e2af7.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\Debug\\cmTC_e2af7.exe" /INCREMENTAL /ILK:"cmTC_e2af7.dir\\Debug\\cmTC_e2af7.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-ms7yg1/Debug/cmTC_e2af7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-ms7yg1/Debug/cmTC_e2af7.lib" /MACHINE:X64  /machine:x64 cmTC_e2af7.dir\\Debug\\CheckFunctionExists.obj
+        CheckFunctionExists.obj : error LNK2019: 无法解析的外部符号 fseeko，函数 main 中引用了该符号 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj]
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\Debug\\cmTC_e2af7.exe : fatal error LNK1120: 1 个无法解析的外部命令 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj]
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj”(默认目标) (1) ->
+        (Link 目标) -> 
+          CheckFunctionExists.obj : error LNK2019: 无法解析的外部符号 fseeko，函数 main 中引用了该符号 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj]
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\Debug\\cmTC_e2af7.exe : fatal error LNK1120: 1 个无法解析的外部命令 [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-ms7yg1\\cmTC_e2af7.vcxproj]
+        
+            0 个警告
+            2 个错误
+        
+        已用时间 00:00:01.39
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "contrib/zlib/CMakeLists.txt:72 (check_include_file)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-iuh711"
+      binary: "E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-iuh711"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_MODULE_PATH: "E:/learn/opengl/assimp/cmake-modules"
+    buildResult:
+      variable: "Z_HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/learn/opengl/build/assimp/CMakeFiles/CMakeScratch/TryCompile-iuh711'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" cmTC_4dd4c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        用于 .NET Framework 的 Microsoft (R) 生成引擎版本 16.11.2+f32259642
+        版权所有(C) Microsoft Corporation。保留所有权利。
+        
+        生成启动时间为 2023/7/21 18:03:13。
+        节点 1 上的项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\cmTC_4dd4c.vcxproj”(默认目标)。
+        PrepareForBuild:
+          正在创建目录“cmTC_4dd4c.dir\\Debug\\”。
+          正在创建目录“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\Debug\\”。
+          正在创建目录“cmTC_4dd4c.dir\\Debug\\cmTC_4dd4c.tlog\\”。
+        InitializeBuildStatus:
+          正在创建“cmTC_4dd4c.dir\\Debug\\cmTC_4dd4c.tlog\\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4dd4c.dir\\Debug\\\\" /Fd"cmTC_4dd4c.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\CheckIncludeFile.c"
+          用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.29.30151 版
+          版权所有(C) Microsoft Corporation。保留所有权利。
+          CheckIncludeFile.c
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4dd4c.dir\\Debug\\\\" /Fd"cmTC_4dd4c.dir\\Debug\\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\CheckIncludeFile.c"
+        E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\CheckIncludeFile.c(1,10): fatal error C1083: 无法打开包括文件: “unistd.h”: No such file or directory [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\cmTC_4dd4c.vcxproj]
+        已完成生成项目“E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\cmTC_4dd4c.vcxproj”(默认目标)的操作 - 失败。
+        
+        生成失败。
+        
+        “E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\cmTC_4dd4c.vcxproj”(默认目标) (1) ->
+        (ClCompile 目标) -> 
+          E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\CheckIncludeFile.c(1,10): fatal error C1083: 无法打开包括文件: “unistd.h”: No such file or directory [E:\\learn\\opengl\\build\\assimp\\CMakeFiles\\CMakeScratch\\TryCompile-iuh711\\cmTC_4dd4c.vcxproj]
+        
+            0 个警告
+            1 个错误
+        
+        已用时间 00:00:00.75
+        
+      exitCode: 1
+...
