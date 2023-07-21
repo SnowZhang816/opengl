@@ -132,6 +132,9 @@ void Cube::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
     shader->setVec3("spotLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
     shader->setFloat("spotLight.cutOff", spotlight.getCutOff()); 
     shader->setFloat("spotLight.outerCutOff", spotlight.getOuterCutOff()); 
+    shader->setFloat("spotLight.constant", 1.0f); 
+    shader->setFloat("spotLight.linear", 0.014f); 
+    shader->setFloat("spotLight.quadratic", 0.0007f); 
     
     shader->setInt("material.diffuse", 0);
     shader->setInt("material.specular", 1);

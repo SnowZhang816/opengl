@@ -22,10 +22,10 @@ Quad::Quad(float width, float height)
     };
 
     float colours[] = {
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 0.0f,
+        1.0f, 0.5f, 0.31f,
+        1.0f, 0.5f, 0.31f,
+        1.0f, 0.5f, 0.31f,
+        1.0f, 0.5f, 0.31f,
     };
 
     float texCoords[] = {
@@ -106,7 +106,7 @@ void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
     shader->setFloat("material.shininess", 64.0f);
     //平行光
     shader->setVec3("dirLight.direction", glm::vec3(-0.2f, -1.0f, -0.3f));
-    shader->setVec3("dirLight.ambient", glm::vec3(0.2f, 0.2f, 0.2f));
+    shader->setVec3("dirLight.ambient", glm::vec3(1.0f, 1.0f, 1.0f));
     shader->setVec3("dirLight.diffuse", glm::vec3(0.5f, 0.5f, 0.5f)); // darken diffuse light a bit
     shader->setVec3("dirLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
 
@@ -140,6 +140,9 @@ void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
     shader->setVec3("spotLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
     shader->setFloat("spotLight.cutOff", spotlight.getCutOff()); 
     shader->setFloat("spotLight.outerCutOff", spotlight.getOuterCutOff()); 
+    shader->setFloat("spotLight.constant", 1.0f); 
+    shader->setFloat("spotLight.linear", 0.014f); 
+    shader->setFloat("spotLight.quadratic", 0.0007f); 
 
     shader->setInt("material.diffuse", 0);
     shader->setInt("material.specular", 1);

@@ -102,7 +102,7 @@ int main()
     // lights.push_back(light4);
 
     Light spotLight = Light(glm::vec3(1,1,1));
-    spotLight.setPosition(glm::vec3(0,0,30));
+    spotLight.setPosition(glm::vec3(0,0,20));
     spotLight.setDirection(glm::vec3(0,0,-1));
     spotLight.setCutOff(glm::cos(glm::radians(15.0f)));
     spotLight.setOuterCutOff(glm::cos(glm::radians(18.0f)));
@@ -115,7 +115,9 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         degree = degree + 0.01;
-        // light1.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+
+        // spotLight.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+
         updateColorDelta(&total, &delta);
 
         glm::vec3 lightColor = glm::vec3(1.0f);
