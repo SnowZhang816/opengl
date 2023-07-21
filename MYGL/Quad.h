@@ -14,7 +14,7 @@ public:
     Quad(float w, float h);
     ~Quad();
 
-    void draw(Camera *ca, const std::vector<Light> &lights);
+    void draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight);
 private:
     unsigned int VAO;
 

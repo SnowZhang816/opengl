@@ -3,21 +3,32 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-
-Light::Light(glm::vec3 c) : color(c)
+Light::Light(glm::vec3 c, glm::vec3 dir) : color(c), direction(dir)
 {
     float vertices[] = {
-        -0.1, 0.1, 0,
-        0.1, 0.1, 0,
-        0.1, -0.1, 0,
-        -0.1, -0.1, 0,
+        -0.1,
+        0.1,
+        0,
+        0.1,
+        0.1,
+        0,
+        0.1,
+        -0.1,
+        0,
+        -0.1,
+        -0.1,
+        0,
     };
 
     unsigned int indices[] = {
-        0, 1, 2,
-        0, 2, 3,
+        0,
+        1,
+        2,
+        0,
+        2,
+        3,
     };
-    
+
     unsigned int vbo, ebo;
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
@@ -44,10 +55,14 @@ Light::~Light()
 {
 }
 
-
- void Light::draw(Camera *ca){
+void Light::draw(Camera *ca)
+{
     shader->use();
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
+
+    this->scale = glm::vec3(20);
+
+    glm::mat4 model = glm::scale(model, this->scale);
+    model = glm::translate(glm::mat4(1.0f), this->position);
     shader->setMat4("model", model);
     shader->setMat4("view", ca->getViewMatrix());
     shader->setMat4("projection", ca->getProjectionMatrix());
@@ -55,14 +70,47 @@ Light::~Light()
 
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
- }
+}
 
- void Light::setColor(glm::vec3 c)
- {
+void Light::setColor(glm::vec3 c)
+{
     this->color = c;
- }
+}
 
-  glm::vec3 Light::getColor()
-  {
+glm::vec3 Light::getColor()
+{
     return this->color;
-  }
+}
+
+void Light::setDirection(glm::vec3 dir)
+{
+    this->direction = dir;
+}
+
+glm::vec3 Light::getDirection()
+{
+    return this->direction;
+}
+
+
+float Light::getCutOff()
+{
+    return cutOff;
+}
+
+void Light::setCutOff(float c)
+{
+    cutOff = c;
+}
+
+float Light::getOuterCutOff()
+{
+    return outerCutOff;
+}
+
+void Light::setOuterCutOff(float c)
+{
+    outerCutOff = c;
+}
+
+

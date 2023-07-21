@@ -90,7 +90,7 @@ Quad::~Quad()
 {
 }
 
-void Quad::draw(Camera *ca, const std::vector<Light> &lights)
+void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
 
@@ -131,6 +131,15 @@ void Quad::draw(Camera *ca, const std::vector<Light> &lights)
         sprintf_s(buff, "pointLights[%d].quadratic", i);
         shader->setFloat(buff, 0.0007f);
     }
+
+    //聚光灯
+    shader->setVec3("spotLight.direction", spotlight.getDirection());
+    shader->setVec3("spotLight.position", spotlight.getPosition());
+    shader->setVec3("spotLight.ambient", spotlight.getColor() * glm::vec3(0.1));
+    shader->setVec3("spotLight.diffuse", spotlight.getColor() * glm::vec3(0.5f)); // darken diffuse light a bit
+    shader->setVec3("spotLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
+    shader->setFloat("spotLight.cutOff", spotlight.getCutOff()); 
+    shader->setFloat("spotLight.outerCutOff", spotlight.getOuterCutOff()); 
 
     shader->setInt("material.diffuse", 0);
     shader->setInt("material.specular", 1);

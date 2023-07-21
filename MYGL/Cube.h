@@ -9,7 +9,7 @@ public:
     Cube(float x, float y, float z);
     ~Cube();
 
-    void draw(Camera *ca, const std::vector<Light> &lights);
+    void draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight);
 private:
     Texture *tex1;
     Texture *tex2;
