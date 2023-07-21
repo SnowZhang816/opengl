@@ -24,6 +24,8 @@ void mouse_callback(GLFWwindow *window, double x, double y);
 void mouse_button(GLFWwindow *window, int button, int action, int mods);
 void mouse_scroll(GLFWwindow* window, double xoffset, double yoffset);
 
+void updateColorDelta(float *total, float *delta);
+
 bool leftEnter = false;
 bool rightEnter = false;
 
@@ -79,12 +81,26 @@ int main()
     Cube cube = Cube(10,10,10);
     cube.setPosition(glm::vec3(0, 0, 0));
 
-    Light light = Light(glm::vec3(1,1,1));
+    Light light1 = Light(glm::vec3(1,1,1));
+    light1.setPosition(glm::vec3(0,1,10));
     float radio = 10;
     float degree = 0;
     float delta = 0.0003;
     float total = 0;
-    light.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+    // light1.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+
+    Light light2 = Light(glm::vec3(1,1,1));
+    light2.setPosition(glm::vec3(0,10,0));
+    Light light3 = Light(glm::vec3(1,1,1));
+    light3.setPosition(glm::vec3(0,0,-10));
+    Light light4 = Light(glm::vec3(1,1,1));
+    light4.setPosition(glm::vec3(-10,0,0));
+    std::vector<Light> lights;
+    lights.push_back(light1);
+    lights.push_back(light2);
+    lights.push_back(light3);
+    lights.push_back(light4);
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -93,26 +109,23 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         degree = degree + 0.01;
-        light.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
-        total += delta;
-        if (total >= 1) {
-            total = 1;
-            delta = -delta;
-        } 
-        if (total <= 0) {
-            total = 0;
-            delta = -delta;
-        }
+        // light1.setPosition(glm::vec3(glm::sin(glm::radians(degree)) * radio, 0.0f, glm::cos(glm::radians(degree)) * radio));
+        updateColorDelta(&total, &delta);
 
         glm::vec3 lightColor = glm::vec3(1.0f);
         // lightColor.x = static_cast<float>(sin(glfwGetTime() * 2.0));
         // lightColor.y = static_cast<float>(sin(glfwGetTime() * 0.7));
         // lightColor.z = static_cast<float>(sin(glfwGetTime() * 1.3));
-        light.setColor(lightColor);
+        light1.setColor(lightColor);
 
-        light.draw(&ca);
-        quad.draw(&ca, &light);
-        cube.draw(&ca, &light);
+        for (size_t i = 0; i < lights.size(); i++)
+        {
+            Light light = lights.at(i);
+            light1.draw(&ca);
+        }
+        
+        quad.draw(&ca, lights);
+        cube.draw(&ca, lights);
         grid.draw(&ca);
 
         glfwSwapBuffers(window);
@@ -122,6 +135,19 @@ int main()
     glfwTerminate();
 
     return 0;
+}
+
+void updateColorDelta(float *total, float *delta)
+{
+    *total += *delta;
+    if (*total >= 1) {
+        *total = 1;
+        *delta = -*delta;
+    } 
+    if (*total <= 0) {
+        *total = 0;
+        *delta = -*delta;
+    }
 }
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height)

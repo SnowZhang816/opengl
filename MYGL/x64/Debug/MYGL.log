@@ -1,7 +1,27 @@
-﻿  Cube.cpp
+﻿  main.cpp
 E:\learn\opengl\libs\include\glm\core\func_common.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 E:\learn\opengl\libs\include\glm\core\func_common.inl(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 E:\learn\opengl\libs\include\glm\core\func_integer.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 E:\learn\opengl\MYGL\Camera.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\MYGL\Cube.cpp(91,38): warning C4305: “参数”: 从“double”到“float”截断
+E:\learn\opengl\MYGL\Grid.h(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+E:\learn\opengl\MYGL\main.cpp(88,25): warning C4305: “初始化”: 从“double”到“float”截断
+E:\learn\opengl\MYGL\main.cpp(111,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(236,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(240,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(247,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(251,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(264,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(268,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(275,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(279,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(292,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(296,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(303,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(307,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(320,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(324,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(331,37): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(335,38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(361,29): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\learn\opengl\MYGL\main.cpp(363,30): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
   MYGL.vcxproj -> E:\learn\opengl\MYGL\x64\Debug\MYGL.exe

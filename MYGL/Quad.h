@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "Texture.h"
 #include "Light.h"
+#include <vector>
 
 class Quad : public Node
 {
@@ -13,7 +14,7 @@ public:
     Quad(float w, float h);
     ~Quad();
 
-    void draw(Camera *ca, Light *light);
+    void draw(Camera *ca, const std::vector<Light> &lights);
 private:
     unsigned int VAO;
 

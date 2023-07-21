@@ -1,4 +1,5 @@
 #include "Cube.h"
+#include <cstdio>
 
 Cube::Cube(float x, float y, float z)
 {       
@@ -80,7 +81,7 @@ Cube::~Cube(){
 
 }
 
-void Cube::draw(Camera *ca, Light *light)
+void Cube::draw(Camera *ca, const std::vector<Light> &lights)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
 
@@ -94,16 +95,35 @@ void Cube::draw(Camera *ca, Light *light)
     // shader->setVec3("material.diffuse", glm::vec3(0.0f, 0.50980392f, 0.50980392f));
     // shader->setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
     shader->setFloat("material.shininess", 10.0f);
-    shader->setVec3("light.position", light->getPosition());
-    shader->setVec3("light.ambient", light->getColor() * glm::vec3(0.3));
-    shader->setVec3("light.diffuse", light->getColor() * glm::vec3(0.5f)); // darken diffuse light a bit
-    shader->setVec3("light.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
-    shader->setVec3("light.direction", glm::vec3(-0.2f, -1.0f, -0.3f)); 
-    shader->setFloat("light.constant",  1.0f);
-    shader->setFloat("light.linear", 0.014f);
-    shader->setFloat("light.quadratic", 0.0007f);
 
+    //平行光
+    shader->setVec3("dirLight.direction", glm::vec3(-0.2f, -1.0f, -0.3f));
+    shader->setVec3("dirLight.ambient", glm::vec3(0.2f, 0.2f, 0.2f));
+    shader->setVec3("dirLight.diffuse", glm::vec3(0.5f, 0.5f, 0.5f)); // darken diffuse light a bit
+    shader->setVec3("dirLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
 
+    //点光源
+    shader->setInt("pointLightNum", lights.size());
+    for (int i = 0; i < lights.size(); i++)
+    {
+        Light light = lights.at(i);
+        char buff[100];
+        sprintf_s(buff, "pointLights[%d].position", i);
+        shader->setVec3(buff, light.getPosition());
+        sprintf_s(buff, "pointLights[%d].ambient", i);
+        shader->setVec3(buff, light.getColor() * glm::vec3(0.1));
+        sprintf_s(buff, "pointLights[%d].diffuse", i);
+        shader->setVec3(buff, light.getColor() * glm::vec3(0.5f)); // darken diffuse light a bit
+        sprintf_s(buff, "pointLights[%d].specular", i);
+        shader->setVec3(buff, glm::vec3(1.0f, 1.0f, 1.0f)); 
+        sprintf_s(buff, "pointLights[%d].constant", i);
+        shader->setFloat(buff,  1.0f);
+        sprintf_s(buff, "pointLights[%d].linear", i);
+        shader->setFloat(buff, 0.014f);
+        sprintf_s(buff, "pointLights[%d].quadratic", i);
+        shader->setFloat(buff, 0.0007f);
+    }
+    
     shader->setInt("material.diffuse", 0);
     shader->setInt("material.specular", 1);
     shader->setInt("texture1", 2);
