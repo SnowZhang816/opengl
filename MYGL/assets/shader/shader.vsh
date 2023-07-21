@@ -19,6 +19,9 @@ void main()
 	// gl_Position = vec4(aPos, 1.0);
 	ourColor = aColor;
 	TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+
+	//正规矩阵
 	Normal = mat3(transpose(inverse(model))) * aNormal;
+
 	FragPos = vec3(model * vec4(aPos, 1.0));
 }

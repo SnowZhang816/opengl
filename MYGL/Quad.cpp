@@ -105,8 +105,8 @@ void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
     // shader->setVec3("material.specular", glm::vec3(0.5f, 0.5f, 0.5f));
     shader->setFloat("material.shininess", 64.0f);
     //平行光
-    shader->setVec3("dirLight.direction", glm::vec3(-0.2f, -1.0f, -0.3f));
-    shader->setVec3("dirLight.ambient", glm::vec3(1.0f, 1.0f, 1.0f));
+    shader->setVec3("dirLight.direction", glm::vec3(0.0f, 0.0f, -1.0f));
+    shader->setVec3("dirLight.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
     shader->setVec3("dirLight.diffuse", glm::vec3(0.5f, 0.5f, 0.5f)); // darken diffuse light a bit
     shader->setVec3("dirLight.specular", glm::vec3(1.0f, 1.0f, 1.0f)); 
 

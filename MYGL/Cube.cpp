@@ -111,7 +111,7 @@ void Cube::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
         sprintf_s(buff, "pointLights[%d].position", i);
         shader->setVec3(buff, light.getPosition());
         sprintf_s(buff, "pointLights[%d].ambient", i);
-        shader->setVec3(buff, light.getColor() * glm::vec3(0.1));
+        shader->setVec3(buff, light.getColor() * glm::vec3(0.2));
         sprintf_s(buff, "pointLights[%d].diffuse", i);
         shader->setVec3(buff, light.getColor() * glm::vec3(0.5f)); // darken diffuse light a bit
         sprintf_s(buff, "pointLights[%d].specular", i);

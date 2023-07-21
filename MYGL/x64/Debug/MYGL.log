@@ -7,14 +7,4 @@ E:\learn\opengl\MYGL\Camera.h(1,1): warning C4819: 该文件包含不能在当�
 E:\learn\opengl\MYGL\Light.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 E:\learn\opengl\MYGL\Cube.cpp(92,38): warning C4305: “参数”: 从“double”到“float”截断
 E:\learn\opengl\MYGL\Cube.cpp(106,50): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  Quad.cpp
-E:\learn\opengl\MYGL\Quad.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\libs\include\glm\core\func_common.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\libs\include\glm\core\func_common.inl(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\libs\include\glm\core\func_integer.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\MYGL\Camera.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\MYGL\Light.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\learn\opengl\MYGL\Quad.cpp(101,38): warning C4305: “参数”: 从“double”到“float”截断
-E:\learn\opengl\MYGL\Quad.cpp(114,50): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  正在生成代码...
   MYGL.vcxproj -> E:\learn\opengl\MYGL\x64\Debug\MYGL.exe

@@ -96,7 +96,7 @@ int main()
     Light light4 = Light(glm::vec3(1,1,1));
     light4.setPosition(glm::vec3(-10,0,0));
     std::vector<Light> lights;
-    // lights.push_back(light1);
+    lights.push_back(light1);
     // lights.push_back(light2);
     // lights.push_back(light3);
     // lights.push_back(light4);
