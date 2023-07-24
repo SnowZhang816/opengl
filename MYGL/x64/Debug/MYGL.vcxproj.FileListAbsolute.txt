@@ -1,2 +1,2 @@
-E:\learn\opengl\MYGL\x64\Debug\MYGL.exe
 D:\learn\opengl\MYGL\x64\Debug\MYGL.exe
+E:\learn\opengl\MYGL\x64\Debug\MYGL.exe

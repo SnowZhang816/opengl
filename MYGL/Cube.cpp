@@ -70,9 +70,9 @@ Cube::Cube(float x, float y, float z)
     glEnableVertexAttribArray(3);
 
      // texture
-    tex1 = new Texture("assets/image/container2.png", GL_RGBA);
-    tex2 = new Texture("assets/image/container2_specular.png", GL_RGBA);
-    tex3 = new Texture("assets/image/matrix.jpg", GL_RGB);
+    tex1 = new Texture("assets/image/container2.png");
+    tex2 = new Texture("assets/image/container2_specular.png");
+    tex3 = new Texture("assets/image/matrix.jpg");
 
     shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
 }
@@ -145,4 +145,5 @@ void Cube::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
 
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
+    glBindVertexArray(0);
 }

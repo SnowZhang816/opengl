@@ -138,5 +138,6 @@ void Grid::draw(Camera *ca)
     glBindVertexArray(ID);
     glLineWidth(2);
     glDrawArrays(GL_LINES, 0, 22 * 2);
+    glBindVertexArray(0);
 }
 

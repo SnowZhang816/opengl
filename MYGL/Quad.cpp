@@ -79,9 +79,9 @@ Quad::Quad(float width, float height)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     // texture
-    tex1 = new Texture("assets/image/container2.png", GL_RGBA);
-    tex2 = new Texture("assets/image/container.jpg", GL_RGB);
-    tex3 = new Texture("assets/image/awesomeface.png", GL_RGBA);
+    tex1 = new Texture("assets/image/container2.png");
+    tex2 = new Texture("assets/image/container.jpg");
+    tex3 = new Texture("assets/image/awesomeface.png");
 
     shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
 }
@@ -153,4 +153,5 @@ void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
 
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
 }
