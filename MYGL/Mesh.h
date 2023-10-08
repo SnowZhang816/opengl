@@ -29,5 +29,9 @@ private:
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
 	std::vector<Texture> textures;
+
+	Texture *tex1;
+    Texture *tex2;
+    Texture *tex3;
 };
 

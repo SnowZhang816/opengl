@@ -84,7 +84,6 @@ uniform SpotLight spotLight;
 
 out vec4 FragColor;
 
-in vec3 ourColor;
 in vec2 TexCoord;
 
 //物体的旋转、缩放会影响法向量，所以这里是一个正规矩阵处理之后的向量，在vs着色器中处理
@@ -186,11 +185,6 @@ vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 viewDir)
 
 void main()
 {
-	// FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), intensity) * vec4(ourColor, 1.0f);
-	// FragColor = mix(texture(texture1, TexCoord), texture(texture2, vec2(1.0 - TexCoord.x, TexCoord.y)), 0.2) * vec4(ourColor, 1.0f);
-	// FragColor = texture(texture2, TexCoord);
-	// FragColor = texture(texture1, TexCoord);
-	// FragColor = vec4(ourColor, 1.0f);
 
 	//specular(高光反射)，反射出来的是光源的颜色
 
@@ -204,11 +198,6 @@ void main()
 	}
 
 	result += CalcSpotLight(spotLight, normal, viewDir);
-	// vec3 reflectDir = reflect(normalize(-dirLight.direction), normal);
-
-	// vec3 result = dirLight.ambient *  ourColor + 
-	// dirLight.diffuse * max(dot(normal, normalize(-dirLight.direction)), 0.0) * ourColor + 
-	// dirLight.specular * pow(max(dot(viewDir, reflectDir), 0.0), 32) * ourColor;
 
 	FragColor = vec4(result, 1.0f);
 }

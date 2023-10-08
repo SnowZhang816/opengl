@@ -10,7 +10,6 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
     unsigned int vbo, ebo;
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
-
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
@@ -23,15 +22,15 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normal));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCords));
     glEnableVertexAttribArray(1);
 
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCords));
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normal));
     glEnableVertexAttribArray(2);
 
+    glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
 
     shader = new Shader("assets/shader/meshshader.vsh", "assets/shader/meshshader.fsh");
 }
@@ -120,11 +119,12 @@ void Mesh::draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight)
         {
             number = std::to_string(heightNum++);
         }
-
-        shader->setInt(("material." + name + number).c_str(), i);
+        
+        std::string ns = ("material." + name + number).c_str();
+        shader->setInt(ns, i);
         texture.use(GL_TEXTURE0 + i);
     }
-    
+
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

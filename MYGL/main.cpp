@@ -100,9 +100,9 @@ int main()
     light4.setPosition(glm::vec3(-10,0,0));
     std::vector<Light> lights;
     lights.push_back(light1);
-    // lights.push_back(light2);
-    // lights.push_back(light3);
-    // lights.push_back(light4);
+    lights.push_back(light2);
+    lights.push_back(light3);
+    lights.push_back(light4);
 
     Light spotLight = Light(glm::vec3(1,1,1));
     spotLight.setPosition(glm::vec3(0,0,20));
@@ -138,8 +138,8 @@ int main()
         }
         spotLight.draw(&ca);
         model.draw(&ca, lights, spotLight);
-        //quad.draw(&ca, lights, spotLight);
-        //cube.draw(&ca, lights, spotLight);
+        quad.draw(&ca, lights, spotLight);
+        cube.draw(&ca, lights, spotLight);
         grid.draw(&ca);
 
         glfwSwapBuffers(window);

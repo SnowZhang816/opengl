@@ -120,24 +120,24 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
     {
         aiString str;
         mat->GetTexture(type, i, &str);
+        std::string filename = std::string(str.C_Str());
+        std::string path = directory + '/' + filename;
         bool skip = false;
         for(unsigned int j = 0; j < textures_loaded.size(); j++)
         {
-            std::string filename = std::string(str.C_Str());
-            std::string path = directory + '/' + filename;
             if(std::strcmp(textures_loaded[j].path.data(), path.data()) == 0)
             {
                 textures.push_back(textures_loaded[j]);
                 skip = true; 
                 break;
             }
+        }
 
-            if(!skip)
-            {   // if texture hasn't been loaded already, load it
-                Texture texture(path.c_str(), typeName);
-                textures.push_back(texture);
-                textures_loaded.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecessary load duplicate textures.
-            }
+        if (!skip)
+        {   // if texture hasn't been loaded already, load it
+            Texture texture(path.c_str(), typeName);
+            textures.push_back(texture);
+            textures_loaded.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecessary load duplicate textures.
         }
     }
     return textures;
