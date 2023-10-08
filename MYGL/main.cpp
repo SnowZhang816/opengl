@@ -17,6 +17,7 @@
 #include "Quad.h"
 #include "Light.h"
 #include "Cube.h"
+#include "Model.h"
 
 using namespace std;
 
@@ -109,6 +110,8 @@ int main()
     spotLight.setCutOff(glm::cos(glm::radians(15.0f)));
     spotLight.setOuterCutOff(glm::cos(glm::radians(18.0f)));
 
+    Model model = Model("assets/modle/nanosuit/nanosuit.obj");
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -134,9 +137,9 @@ int main()
             light1.draw(&ca);
         }
         spotLight.draw(&ca);
-
-        quad.draw(&ca, lights, spotLight);
-        cube.draw(&ca, lights, spotLight);
+        model.draw(&ca, lights, spotLight);
+        //quad.draw(&ca, lights, spotLight);
+        //cube.draw(&ca, lights, spotLight);
         grid.draw(&ca);
 
         glfwSwapBuffers(window);

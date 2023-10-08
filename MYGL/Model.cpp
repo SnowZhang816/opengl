@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Model::Model(char* path)
+Model::Model(const char* path)
 {
     _path = path;
     loadModel(path);

@@ -13,7 +13,7 @@
 class Model
 {
 public:
-	Model(char* path);
+	Model(const char* path);
 	~Model();
 
 	void draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight);

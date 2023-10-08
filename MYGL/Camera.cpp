@@ -70,6 +70,8 @@ void Camera::setUp(glm::vec3 pos)
     updateViewMatrix();
 }
 
+
+//Y
 void Camera::rotateYaw(float delta)
 {
     yaw += delta;
@@ -81,6 +83,7 @@ void Camera::rotateYaw(float delta)
     updateViewMatrix();
 }
 
+//X
 void Camera::rotatePitch(float delta)
 {
     pitch += delta;
