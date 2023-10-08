@@ -10,7 +10,7 @@
 #include "Mesh.h"
 #include "Texture.h"
 
-class Model
+class Model : public Render
 {
 public:
 	Model(const char* path);

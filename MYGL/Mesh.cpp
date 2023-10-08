@@ -1,8 +1,10 @@
 #include "Mesh.h"
 #include <string>
+#include "Model.h"
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, Model *model)
 {
+    this->model = model;
     this->vertices = vertices;
     this->indices = indices;
     this->textures = textures;
@@ -41,7 +43,7 @@ Mesh::~Mesh()
 
 void Mesh::draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight)
 {
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), this->model->getPosition());
 
     shader->use();
     shader->setMat4("model", model);

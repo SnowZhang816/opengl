@@ -111,6 +111,7 @@ int main()
     spotLight.setOuterCutOff(glm::cos(glm::radians(18.0f)));
 
     Model model = Model("assets/modle/nanosuit/nanosuit.obj");
+    model.setPosition(glm::vec3(10,0,0));
 
     while (!glfwWindowShouldClose(window))
     {

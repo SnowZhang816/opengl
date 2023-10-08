@@ -11,6 +11,8 @@
 
 #include <vector>
 
+class Model;
+
 struct Vertex
 {
 	glm::vec3 position;
@@ -21,7 +23,7 @@ struct Vertex
 class Mesh : public Render
 {
 public:
-	Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+	Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, Model *model);
 	~Mesh();
 
 	void draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight);
@@ -29,9 +31,6 @@ private:
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
 	std::vector<Texture> textures;
-
-	Texture *tex1;
-    Texture *tex2;
-    Texture *tex3;
+	Model *model;
 };
 
