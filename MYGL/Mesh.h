@@ -27,6 +27,7 @@ public:
 	~Mesh();
 
 	void draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight);
+	void drawSimple(Camera *ca);
 private:
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;

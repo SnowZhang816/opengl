@@ -70,6 +70,7 @@ int main()
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     glEnable(GL_DEPTH_TEST);
+    // glDepthFunc(GL_ALWAYS);
 
     ca.setPosition(glm::vec3(0,30.0f,60.0f));
     // ca.setPosition(glm::vec3(sin(glm::radians(degree)) * radio, 3.0f, cos(glm::radians(degree)) * radio));
@@ -78,11 +79,11 @@ int main()
 
     Grid grid = Grid();
 
-    Quad quad = Quad(30,6);
-    quad.setPosition(glm::vec3(20, 0, -30));
+    Quad quad = Quad(200,200);
+    quad.setRotation(glm::vec3(90,0,0));
 
     Cube cube = Cube(10,10,10);
-    cube.setPosition(glm::vec3(0, 0, 0));
+    cube.setPosition(glm::vec3(0, 5.1, 0));
 
     Light light1 = Light(glm::vec3(1,1,1));
     light1.setPosition(glm::vec3(0,1,10));
@@ -118,7 +119,7 @@ int main()
         processInput(window);
 
         glClearColor(0.f, 0.f, 0.f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         degree = degree + 0.01;
 
@@ -132,16 +133,38 @@ int main()
         // lightColor.z = static_cast<float>(sin(glfwGetTime() * 1.3));
         light1.setColor(lightColor);
 
-        for (size_t i = 0; i < lights.size(); i++)
-        {
-            Light light = lights.at(i);
-            light1.draw(&ca);
-        }
-        spotLight.draw(&ca);
-        model.draw(&ca, lights, spotLight);
+        // for (size_t i = 0; i < lights.size(); i++)
+        // {
+        //     Light light = lights.at(i);
+        //     light1.draw(&ca);
+        // }
+        // spotLight.draw(&ca);
         quad.draw(&ca, lights, spotLight);
+        cube.setScale(glm::vec3(2.0f));
         cube.draw(&ca, lights, spotLight);
-        grid.draw(&ca);
+
+        glEnable(GL_STENCIL_TEST);
+        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        glStencilFunc(GL_ALWAYS, 1, 0xff);
+        glStencilMask(0xFF); // 启用模板缓冲写入
+        model.setScale(glm::vec3(1.0f));
+        model.draw(&ca, lights, spotLight);
+
+        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+        glStencilMask(0x00); // 禁止模板缓冲的写入
+        glDisable(GL_DEPTH_TEST);
+        model.setScale(glm::vec3(1.1));
+        model.drawSimple(&ca);
+
+        glStencilMask(0xFF);
+        glEnable(GL_DEPTH_TEST);
+        glDisable(GL_STENCIL_TEST);
+
+        // model.setScale(glm::vec3(1.0f));
+        // model.draw(&ca, lights, spotLight);
+
+
+        // grid.draw(&ca);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

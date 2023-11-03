@@ -23,6 +23,16 @@ void Node::setScale(glm::vec3 s)
     this->scale = s;
 }
 
+void Node::setRotation(glm::vec3 r)
+{
+    this->rotation = r;
+}
+
+glm::vec3 Node::getRotation()
+{
+    return this->rotation;
+}
+
 glm::vec3 Node::getScale() {
     return this->scale;
 }

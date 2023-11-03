@@ -183,11 +183,19 @@ vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 viewDir)
 	return (ambient + diffuse + specular);
 }
 
+//深度缓冲的可视化
+float near = 0.1; 
+float far  = 1000.0; 
+float LinearizeDepth(float depth) 
+{
+    float z = depth * 2.0 - 1.0; // back to NDC 
+    return (2.0 * near * far) / (far + near - z * (far - near));    
+}
+
 void main()
 {
 
-	//specular(高光反射)，反射出来的是光源的颜色
-
+	// specular(高光反射)，反射出来的是光源的颜色
 	vec3 normal = normalize(Normal);
 	vec3 viewDir = normalize(viewPos - FragPos);
 
@@ -200,4 +208,8 @@ void main()
 	result += CalcSpotLight(spotLight, normal, viewDir);
 
 	FragColor = vec4(result, 1.0f);
+
+	//深度缓冲的可视化
+	// float depth = LinearizeDepth(gl_FragCoord.z) / far;
+	// FragColor = vec4(vec3(depth), 1.0);
 }

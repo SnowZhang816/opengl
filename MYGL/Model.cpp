@@ -149,3 +149,10 @@ void Model::draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight)
         mesh.draw(ca, lights, spotlight);
     }
 }
+
+void Model::drawSimple(Camera* ca)
+{
+    for(Mesh mesh : meshes){
+        mesh.drawSimple(ca);
+    }
+}

@@ -2,6 +2,7 @@
 
 Render::Render()
 {
+    
 }
 
 Render::~Render()

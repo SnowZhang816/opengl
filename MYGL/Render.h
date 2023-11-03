@@ -16,5 +16,6 @@ public:
 protected:
     unsigned int VAO;    
     Shader *shader;
+    Shader *simpleShader;
 };
 

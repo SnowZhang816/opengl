@@ -17,6 +17,7 @@ public:
 	~Model();
 
 	void draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight);
+	void drawSimple(Camera* ca);
 private:
 	void loadModel(const std::string path);
 	void processNode(aiNode *node, const aiScene *scene);

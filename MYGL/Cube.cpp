@@ -68,8 +68,8 @@ Cube::Cube(float x, float y, float z)
 
      // texture
     tex1 = new Texture("assets/image/container2.png");
-    tex2 = new Texture("assets/image/container2_specular.png");
-    tex3 = new Texture("assets/image/matrix.jpg");
+    tex2 = new Texture("assets/image/container.jpg");
+    tex3 = new Texture("assets/image/awesomeface.png");
 
     shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");
 }
@@ -81,6 +81,19 @@ Cube::~Cube(){
 void Cube::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
+    if (this->rotation.x != 0)
+    {
+        model = glm::rotate(model, this->rotation.x, glm::vec3(1.0, 0.0, 0.0));
+    }
+    else if(this->rotation.y != 0)
+    {
+        model = glm::rotate(model, this->rotation.y, glm::vec3(0.0, 1.0, 0.0));
+    }
+    else if(this->rotation.z != 0)
+    {
+        model = glm::rotate(model, this->rotation.z, glm::vec3(0.0, 0.0, 1.0));
+    }
+    model = glm::scale(model, this->getScale());
 
     shader->use();
     shader->setMat4("model", model);

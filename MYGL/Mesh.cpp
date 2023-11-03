@@ -35,6 +35,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     shader = new Shader("assets/shader/meshshader.vsh", "assets/shader/meshshader.fsh");
+    simpleShader = new Shader("assets/shader/shader2.vsh", "assets/shader/shader2.fsh");
 }
 
 Mesh::~Mesh()
@@ -44,6 +45,19 @@ Mesh::~Mesh()
 void Mesh::draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->model->getPosition());
+    if (this->rotation.x != 0)
+    {
+        model = glm::rotate(model, this->rotation.x, glm::vec3(1.0, 0.0, 0.0));
+    }
+    else if(this->rotation.y != 0)
+    {
+        model = glm::rotate(model, this->rotation.y, glm::vec3(0.0, 1.0, 0.0));
+    }
+    else if(this->rotation.z != 0)
+    {
+        model = glm::rotate(model, this->rotation.z, glm::vec3(0.0, 0.0, 1.0));
+    }
+    model = glm::scale(model, this->model->getScale());
 
     shader->use();
     shader->setMat4("model", model);
@@ -131,3 +145,32 @@ void Mesh::draw(Camera* ca, const std::vector<Light>& lights, Light& spotlight)
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
+
+void Mesh::drawSimple(Camera* ca)
+{
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), this->model->getPosition());
+    if (this->rotation.x != 0)
+    {
+        model = glm::rotate(model, this->rotation.x, glm::vec3(1.0, 0.0, 0.0));
+    }
+    else if(this->rotation.y != 0)
+    {
+        model = glm::rotate(model, this->rotation.y, glm::vec3(0.0, 1.0, 0.0));
+    }
+    else if(this->rotation.z != 0)
+    {
+        model = glm::rotate(model, this->rotation.z, glm::vec3(0.0, 0.0, 1.0));
+    }
+
+    model = glm::scale(model, this->model->getScale());
+
+    simpleShader->use();
+    simpleShader->setMat4("model", model);
+    simpleShader->setMat4("view", ca->getViewMatrix());
+    simpleShader->setMat4("projection", ca->getProjectionMatrix());
+
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+}
+
