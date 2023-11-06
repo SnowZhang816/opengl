@@ -207,7 +207,11 @@ void main()
 
 	result += CalcSpotLight(spotLight, normal, viewDir);
 
-	FragColor = vec4(result, 1.0f);
+	vec4 texColor = texture(material.diffuse, TexCoord);
+	// if (texColor.a < 0.1)
+	// 	discard;
+
+	FragColor = vec4(result, texColor.a);
 
 	//深度缓冲的可视化
 	// float depth = LinearizeDepth(gl_FragCoord.z) / far;

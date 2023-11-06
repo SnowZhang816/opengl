@@ -14,6 +14,8 @@ public:
     Quad(float w, float h);
     ~Quad();
 
+    void setTexture(Texture *tex);
+
     void draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight);
 private:
     unsigned int VAO;

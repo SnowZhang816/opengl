@@ -114,6 +114,21 @@ int main()
     Model model = Model("assets/modle/nanosuit/nanosuit.obj");
     model.setPosition(glm::vec3(10,0,0));
 
+    std::vector<Quad> quads;
+    Quad quad1 = Quad(1,1);
+    quad1.setPosition(glm::vec3(-1, 1, 0));
+    quad1.setTexture(new Texture("assets/image/grass.png"));
+    quads.push_back(quad1);
+    Quad quad2 = Quad(1,1);
+    quad2.setPosition(glm::vec3(-2, 1, 0));
+    quad2.setTexture(new Texture("assets/image/grass.png"));
+    quads.push_back(quad2);
+    Quad quad3 = Quad(1,1);
+    quad3.setPosition(glm::vec3(-3, 1, 0));
+    quad3.setTexture(new Texture("assets/image/grass.png"));
+    quads.push_back(quad3);
+    
+
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -140,25 +155,33 @@ int main()
         // }
         // spotLight.draw(&ca);
         quad.draw(&ca, lights, spotLight);
-        cube.setScale(glm::vec3(2.0f));
-        cube.draw(&ca, lights, spotLight);
+        // cube.setScale(glm::vec3(2.0f));
+        // cube.draw(&ca, lights, spotLight);
 
-        glEnable(GL_STENCIL_TEST);
-        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-        glStencilFunc(GL_ALWAYS, 1, 0xff);
-        glStencilMask(0xFF); // 启用模板缓冲写入
-        model.setScale(glm::vec3(1.0f));
-        model.draw(&ca, lights, spotLight);
+        // glEnable(GL_STENCIL_TEST);
+        // glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        // glStencilFunc(GL_ALWAYS, 1, 0xff);
+        // glStencilMask(0xFF); // 启用模板缓冲写入
+        // cube.setScale(glm::vec3(1.0f));
+        // cube.draw(&ca, lights, spotLight);
 
-        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-        glStencilMask(0x00); // 禁止模板缓冲的写入
-        glDisable(GL_DEPTH_TEST);
-        model.setScale(glm::vec3(1.1));
-        model.drawSimple(&ca);
+        // glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+        // glStencilMask(0x00); // 禁止模板缓冲的写入
+        // glDisable(GL_DEPTH_TEST);
+        // cube.setScale(glm::vec3(1.05));
+        // cube.drawSimple(&ca);
 
-        glStencilMask(0xFF);
-        glEnable(GL_DEPTH_TEST);
-        glDisable(GL_STENCIL_TEST);
+        // glStencilMask(0xFF);
+        // glEnable(GL_DEPTH_TEST);
+        // glDisable(GL_STENCIL_TEST);
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        for (int i = 0; i < quads.size(); i++)
+        {
+            quads[i].draw(&ca, lights, spotLight);
+        }
+        
 
         // model.setScale(glm::vec3(1.0f));
         // model.draw(&ca, lights, spotLight);

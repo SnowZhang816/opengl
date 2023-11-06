@@ -85,6 +85,11 @@ Quad::~Quad()
 {
 }
 
+void Quad::setTexture(Texture *tex)
+{
+    tex1 = tex;
+}
+
 void Quad::draw(Camera *ca, const std::vector<Light> &lights, Light &spotlight)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), this->position);
