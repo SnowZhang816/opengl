@@ -153,6 +153,8 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Quad.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="RenderTexture.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="std_image.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -167,7 +169,9 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Quad.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="RenderTexture.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="std_image.h" />
     <ClInclude Include="Texture.h" />

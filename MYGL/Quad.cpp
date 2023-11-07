@@ -17,8 +17,8 @@ Quad::Quad(float width, float height)
     };
 
     unsigned int indices[] = {
-        0, 1, 2,
-        0, 2, 3,
+        0, 3, 1,
+        1, 3, 2,
     };
 
     float colours[] = {
@@ -74,8 +74,8 @@ Quad::Quad(float width, float height)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     // texture
-    tex1 = new Texture("assets/image/111.png");
-    tex2 = new Texture("assets/image/111.png");
+    tex1 = new Texture("assets/image/container.jpg");
+    tex2 = new Texture("assets/image/container2_specular.png");
     tex3 = new Texture("assets/image/111.png");
 
     shader = new Shader("assets/shader/shader.vsh", "assets/shader/shader.fsh");

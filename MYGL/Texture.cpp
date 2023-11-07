@@ -36,6 +36,11 @@ Texture::Texture(const char* imagePath, std::string na) : path(imagePath), name(
     stbi_image_free(data);
 }
 
+Texture::Texture(unsigned int id)
+{
+    this->ID = id;
+}
+
 Texture::~Texture(){
 
 }

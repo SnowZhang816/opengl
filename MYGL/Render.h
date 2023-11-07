@@ -13,6 +13,8 @@ public:
     ~Render();
 
     void draw(Camera *ca);
+
+    void setShader(Shader *shader);
 protected:
     unsigned int VAO;    
     Shader *shader;

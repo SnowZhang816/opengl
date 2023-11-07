@@ -18,6 +18,8 @@
 #include "Light.h"
 #include "Cube.h"
 #include "Model.h"
+#include <map>
+#include "RenderTexture.h"
 
 using namespace std;
 
@@ -115,24 +117,38 @@ int main()
     model.setPosition(glm::vec3(10,0,0));
 
     std::vector<Quad> quads;
-    Quad quad1 = Quad(1,1);
-    quad1.setPosition(glm::vec3(-1, 1, 0));
+    Quad quad1 = Quad(5,5);
+    quad1.setPosition(glm::vec3(-5, 2.5, 3));
     quad1.setTexture(new Texture("assets/image/grass.png"));
     quads.push_back(quad1);
-    Quad quad2 = Quad(1,1);
-    quad2.setPosition(glm::vec3(-2, 1, 0));
+    Quad quad2 = Quad(3,3);
+    quad2.setPosition(glm::vec3(0, 1.5, 2));
     quad2.setTexture(new Texture("assets/image/grass.png"));
     quads.push_back(quad2);
-    Quad quad3 = Quad(1,1);
-    quad3.setPosition(glm::vec3(-3, 1, 0));
+    Quad quad3 = Quad(16,16);
+    quad3.setPosition(glm::vec3(8, 8, 1));
     quad3.setTexture(new Texture("assets/image/grass.png"));
     quads.push_back(quad3);
-    
 
+    // glEnable(GL_CULL_FACE);
+    // glCullFace(GL_FRONT);
+
+    Quad mirror = Quad(50,50);
+    mirror.setShader(new Shader("assets/shader/shader_back.vsh", "assets/shader/shader_back.fsh"));
+    mirror.setPosition(glm::vec3(30, 25, -50));
+
+    Quad mirror1 = Quad(50,50);
+    mirror1.setPosition(glm::vec3(-30, 25, -50));
+
+    RenderTexture renderTexture = RenderTexture();
+    
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
+        glBindFramebuffer(GL_FRAMEBUFFER, renderTexture.frameBuffer);
+
+        glEnable(GL_DEPTH_TEST);
         glClearColor(0.f, 0.f, 0.f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
@@ -175,16 +191,58 @@ int main()
         // glEnable(GL_DEPTH_TEST);
         // glDisable(GL_STENCIL_TEST);
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        //透明物体
+        std::map<float, Quad> tempQuads;
         for (int i = 0; i < quads.size(); i++)
         {
-            quads[i].draw(&ca, lights, spotLight);
+            float dis = glm::length(ca.getPosition() - quads[i].getPosition());
+            tempQuads[dis] = quads[i];
         }
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        for (std::map<float, Quad>::reverse_iterator it = tempQuads.rbegin(); it != tempQuads.rend(); ++it)
+        {
+            it->second.draw(&ca, lights, spotLight);
+        }
+        // for (int i = 0; i < quads.size(); i++)
+        // {
+        //     quads[i].draw(&ca, lights, spotLight);
+        // }
         
 
         // model.setScale(glm::vec3(1.0f));
         // model.draw(&ca, lights, spotLight);
+
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+        glEnable(GL_DEPTH_TEST);
+        glClearColor(0.f, 0.f, 0.f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+        quad.draw(&ca, lights, spotLight);
+        mirror.setTexture(new Texture(renderTexture.texColorBuffer));
+        mirror.draw(&ca, lights, spotLight);
+        // mirror1.setTexture(new Texture("assets/image/awesomeface.png"));
+        // mirror1.draw(&ca, lights, spotLight);
+
+        for (int i = 0; i < quads.size(); i++)
+        {
+            float dis = glm::length(ca.getPosition() - quads[i].getPosition());
+            tempQuads[dis] = quads[i];
+        }
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        for (std::map<float, Quad>::reverse_iterator it = tempQuads.rbegin(); it != tempQuads.rend(); ++it)
+        {
+            it->second.draw(&ca, lights, spotLight);
+        }
+
+
 
 
         // grid.draw(&ca);

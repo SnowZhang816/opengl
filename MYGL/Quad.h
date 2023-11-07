@@ -5,9 +5,10 @@
 #include "Camera.h"
 #include "Texture.h"
 #include "Light.h"
+#include "Render.h"
 #include <vector>
 
-class Quad : public Node
+class Quad : public Render
 {
 public:
     Quad();
@@ -23,7 +24,6 @@ private:
     float width;
     float height;
 
-    Shader *shader;
     Texture *tex1;
     Texture *tex2;
     Texture *tex3;
